@@ -1,11 +1,11 @@
+# Problem 1
 # Projectile Motion: Range vs. Angle of Projection - Detailed Analysis
-
-## Introduction: A Journey into Trajectory
+## **Introduction: A Journey into Trajectory**
 
 Welcome to an exploration of projectile motion, a fundamental concept in physics that governs the flight of objects through the air. From the arc of a thrown ball to the trajectory of a rocket, understanding projectile motion allows us to predict and control the paths of countless objects. This presentation dives deep into the underlying principles, practical applications, and computational modeling of this fascinating phenomenon.
 
 
-## 1. Theoretical Foundation: Unraveling the Motion
+## **1. Theoretical Foundation: Unraveling the Motion**
 
 ### Derivation of Governing Equations: A Step-by-Step Approach
 
@@ -36,7 +36,7 @@ These are the parametric equations describing the projectile's trajectory.
 
 The parameters $v_0$ and $\theta$ define a family of parabolic trajectories. Each combination of these values corresponds to a unique path.
 
-## 2. Analysis of the Range: Maximizing Distance
+## **2. Analysis of the Range: Maximizing Distance**
 
 ### Range Equation: Derivation and Interpretation
 
@@ -49,7 +49,7 @@ $$R = \frac{v_0^2}{g} \sin(2\theta)$$
 * **Gravitational Acceleration ($g$):** The range is inversely proportional to $g$. On a planet with lower gravity, the range would be greater.
 
 
-## Python Code Snippets for Projectile Motion Analysis
+## **Python Code Snippets for Projectile Motion Analysis**
 
 ### Range vs. Angle Graph
 
@@ -115,7 +115,7 @@ plot_trajectories(v0, [30, 45, 60])
 <br>
 <br>
 
-## 3. Practical Applications: Beyond the Textbook
+## **3. Practical Applications: Beyond the Textbook**
 
 ### Real-World Relevance: From Sports to Space
 
@@ -127,7 +127,7 @@ Projectile motion finds applications in various domains, including:
   * **Space Exploration:** Predicting the orbits of spacecraft and satellites.
 
 
-## 4. Implementation: Computational Modeling
+## **4. Implementation: Computational Modeling**
 
 ### Enhancing Realism: Incorporating Complexities
 
@@ -195,7 +195,7 @@ plot_trajectories_drag(v0, [30, 45, 60])
 <br>
 <br>
 
-## Limitations and Improvements: Toward Greater Accuracy
+## **Limitations and Improvements: Toward Greater Accuracy**
 
 ### Refining the Model: Incorporating Advanced Concepts
 
@@ -206,6 +206,6 @@ To further enhance the accuracy of our models, we can consider:
   * **Coriolis Effect:** Considering the impact of Earth's rotation on long-range projectiles.
   * **Numerical Methods:** Employing advanced numerical methods, such as Runge-Kutta, for complex simulations.
 
-## Conclusion: A Deeper Understanding
+## **Conclusion: A Deeper Understanding**
 
 Projectile motion, though seemingly simple, offers a rich tapestry of insights into the fundamental principles of physics. By exploring its theoretical foundations, practical applications, and computational modeling, we gain a deeper understanding of the forces that shape the world around us.
