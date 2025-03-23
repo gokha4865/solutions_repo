@@ -41,11 +41,13 @@ $r^2 + br + \omega_0^2 = 0$, which is $\Delta = b^2 - 4\omega_0^2$.
     where $r_{1,2} = \frac{-b \pm \sqrt{b^2 - 4\omega_0^2}}{2}$ are real and negative. 
 
     The oscillations decay exponentially without oscillating.
+
 * **Critically Damped**
 
     ($b^2 = 4\omega_0^2$):$\theta_h(t) = (C_1 + C_2t)e^{-\frac{b}{2}t}$. 
     
     The oscillations decay as quickly as possible without oscillating.
+    
 * **Underdamped**
     
     ($b^2 < 4\omega_0^2$):$\theta_h(t) = e^{-\frac{b}{2}t}(C_1\cos(\omega_d t) + C_2\sin(\omega_d t)) = C e^{-\frac{b}{2}t}\cos(\omega_d t - \phi)$, 
