@@ -190,11 +190,22 @@
 <p>where <span class="arithmatex">\(\omega_0 = \sqrt{\frac{g}{L}}\)</span> is the natural angular frequency of the undamped pendulum.</p>
 <p>The general solution to this equation consists of two parts: the homogeneous solution (transient behavior) and the particular solution (steady-state behavior).</p>
 <p><strong>Homogeneous Solution:</strong></p>
-<p>The homogeneous equation is <span class="arithmatex">\(\frac{d^2\theta}{dt^2} + b\frac{d\theta}{dt} + \omega_0^2\theta = 0\)</span>. The form of the homogeneous solution depends on the discriminant of the characteristic equation <span class="arithmatex">\(r^2 + br + \omega_0^2 = 0\)</span>, which is <span class="arithmatex">\(\Delta = b^2 - 4\omega_0^2\)</span>.</p>
+<p>The homogeneous equation is <span class="arithmatex">\(\frac{d^2\theta}{dt^2} + b\frac{d\theta}{dt} + \omega_0^2\theta = 0\)</span>. </p>
+<p>The form of the homogeneous solution depends on the discriminant of the characteristic equation </p>
+<p><span class="arithmatex">\(r^2 + br + \omega_0^2 = 0\)</span>, which is <span class="arithmatex">\(\Delta = b^2 - 4\omega_0^2\)</span>.</p>
 <ul>
-<li><strong>Overdamped (<span class="arithmatex">\(b^2 &gt; 4\omega_0^2\)</span>):</strong> <span class="arithmatex">\(\theta_h(t) = C_1e^{r_1t} + C_2e^{r_2t}\)</span>, where <span class="arithmatex">\(r_{1,2} = \frac{-b \pm \sqrt{b^2 - 4\omega_0^2}}{2}\)</span> are real and negative. The oscillations decay exponentially without oscillating.</li>
-<li><strong>Critically Damped (<span class="arithmatex">\(b^2 = 4\omega_0^2\)</span>):</strong> <span class="arithmatex">\(\theta_h(t) = (C_1 + C_2t)e^{-\frac{b}{2}t}\)</span>. The oscillations decay as quickly as possible without oscillating.</li>
-<li><strong>Underdamped (<span class="arithmatex">\(b^2 &lt; 4\omega_0^2\)</span>):</strong> <span class="arithmatex">\(\theta_h(t) = e^{-\frac{b}{2}t}(C_1\cos(\omega_d t) + C_2\sin(\omega_d t)) = C e^{-\frac{b}{2}t}\cos(\omega_d t - \phi)\)</span>, where <span class="arithmatex">\(\omega_d = \sqrt{\omega_0^2 - \frac{b^2}{4}}\)</span> is the damped angular frequency, and <span class="arithmatex">\(C\)</span> and <span class="arithmatex">\(\phi\)</span> are constants determined by initial conditions. The oscillations decay exponentially with a frequency lower than the natural frequency.</li>
+<li>
+<p><strong>Overdamped</strong> </p>
+<p>(<span class="arithmatex">\(b^2 &gt; 4\omega_0^2\)</span>):<span class="arithmatex">\(\theta_h(t) = C_1e^{r_1t} + C_2e^{r_2t}\)</span>, </p>
+<p>where <span class="arithmatex">\(r_{1,2} = \frac{-b \pm \sqrt{b^2 - 4\omega_0^2}}{2}\)</span> are real and negative. </p>
+<p>The oscillations decay exponentially without oscillating.
+* <strong>Critically Damped</strong></p>
+<p>(<span class="arithmatex">\(b^2 = 4\omega_0^2\)</span>):<span class="arithmatex">\(\theta_h(t) = (C_1 + C_2t)e^{-\frac{b}{2}t}\)</span>. </p>
+<p>The oscillations decay as quickly as possible without oscillating.
+* <strong>Underdamped</strong></p>
+<p>(<span class="arithmatex">\(b^2 &lt; 4\omega_0^2\)</span>):<span class="arithmatex">\(\theta_h(t) = e^{-\frac{b}{2}t}(C_1\cos(\omega_d t) + C_2\sin(\omega_d t)) = C e^{-\frac{b}{2}t}\cos(\omega_d t - \phi)\)</span>, </p>
+<p>where <span class="arithmatex">\(\omega_d = \sqrt{\omega_0^2 - \frac{b^2}{4}}\)</span> is the damped angular frequency, and <span class="arithmatex">\(C\)</span> and <span class="arithmatex">\(\phi\)</span> are constants determined by initial conditions. The oscillations decay exponentially with a frequency lower than the natural frequency.</p>
+</li>
 </ul>
 <p><img alt="alt text" src="../Figure_1.png"/></p>
 <p>This plot shows the angular displacement of the pendulum over time, exhibiting a decaying sinusoidal oscillation as expected for an underdamped system.</p>
@@ -215,7 +226,9 @@
 <p>This resonance frequency is slightly lower than the natural frequency <span class="arithmatex">\(\omega_0\)</span> when damping is present. For small damping (<span class="arithmatex">\(b \ll \omega_0\)</span>), <span class="arithmatex">\(\omega_r \approx \omega_0\)</span>.</p>
 <p><strong>Implications for Energy:</strong></p>
 <p>At resonance, the driving force is most effectively transferring energy to the pendulum. The energy input from the driving force compensates for the energy dissipated by damping, leading to oscillations with the largest possible amplitude for a given driving amplitude.</p>
-<p>The power supplied by the driving force is <span class="arithmatex">\(P_{in}(t) = F_{drive}(t) \cdot v(t)\)</span>, where <span class="arithmatex">\(F_{drive}(t) = mA\cos(\omega t)\)</span> (assuming mass <span class="arithmatex">\(m\)</span> is implicitly included in <span class="arithmatex">\(A\)</span>) and <span class="arithmatex">\(v(t) = L\frac{d\theta}{dt}\)</span>. The average power input over a cycle is equal to the average power dissipated by damping, <span class="arithmatex">\(P_{dissipated} = b \langle (\frac{d\theta}{dt})^2 \rangle\)</span>. At resonance, the energy transfer is maximized, which can lead to very large amplitudes if damping is small.</p>
+<p>The power supplied by the driving force is: <span class="arithmatex">\(P_{in}(t) = F_{drive}(t) \cdot v(t)\)</span>,</p>
+<p>where <span class="arithmatex">\(F_{drive}(t) = mA\cos(\omega t)\)</span> (assuming mass <span class="arithmatex">\(m\)</span> is implicitly included in <span class="arithmatex">\(A\)</span>) and <span class="arithmatex">\(v(t) = L\frac{d\theta}{dt}\)</span>.</p>
+<p>The average power input over a cycle is equal to the average power dissipated by damping, <span class="arithmatex">\(P_{dissipated} = b \langle (\frac{d\theta}{dt})^2 \rangle\)</span>. At resonance, the energy transfer is maximized, which can lead to very large amplitudes if damping is small.</p>
 <h3 id="2-analysis-of-dynamics">2 Analysis of Dynamics</h3>
 <p>The dynamics of the forced damped pendulum are significantly influenced by the damping coefficient (<span class="arithmatex">\(b\)</span>), driving amplitude (<span class="arithmatex">\(A\)</span>), and driving frequency (<span class="arithmatex">\(\omega\)</span>).</p>
 <h4 id="21-influence-of-parameters">2.1 Influence of Parameters</h4>
