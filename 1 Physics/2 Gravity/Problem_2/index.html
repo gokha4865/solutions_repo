@@ -172,6 +172,147 @@
 <div class="document" itemscope="itemscope" itemtype="http://schema.org/Article" role="main">
 <div class="section" itemprop="articleBody">
 <h1 id="problem-2">Problem 2</h1>
+<h1 id="escape-velocities-and-cosmic-velocities">Escape Velocities and Cosmic Velocities</h1>
+<h2 id="introduction">Introduction</h2>
+<p>The concept of escape velocity is fundamental in astrophysics and space exploration. It defines the minimum speed required for an object to break free from a celestial body's gravitational pull. Expanding on this, cosmic velocities extend this concept to define the speeds required for orbiting, escaping, and leaving a star system. This document will define and analyze these velocities, provide mathematical derivations, and discuss their importance in space exploration.</p>
+<h2 id="definitions">Definitions</h2>
+<ul>
+<li><strong>First Cosmic Velocity (Orbital Velocity):</strong><ul>
+<li>This is the minimum velocity required for an object to maintain a stable circular orbit around a celestial body, neglecting atmospheric drag.</li>
+<li>It is the velocity at which the centrifugal force balances the gravitational force.</li>
+</ul>
+</li>
+<li><strong>Second Cosmic Velocity (Escape Velocity):</strong><ul>
+<li>This is the minimum velocity required for an object to escape the gravitational influence of a celestial body and never return.</li>
+<li>It is the velocity at which the object's kinetic energy equals the magnitude of its gravitational potential energy.</li>
+</ul>
+</li>
+<li><strong>Third Cosmic Velocity (Solar Escape Velocity):</strong><ul>
+<li>This is the minimum velocity required for an object to escape the solar system from Earth's orbit.</li>
+<li>It accounts for the combined gravitational influence of Earth and the Sun.</li>
+</ul>
+</li>
+</ul>
+<h2 id="mathematical-derivations">Mathematical Derivations</h2>
+<h3 id="first-cosmic-velocity-v_1">First Cosmic Velocity (<span class="arithmatex">\(v_1\)</span>)</h3>
+<p>For a stable circular orbit, the gravitational force equals the centripetal force:</p>
+<div class="arithmatex">\[
+\frac{GMm}{r^2} = \frac{mv_1^2}{r}
+\]</div>
+<p>Where:</p>
+<ul>
+<li><span class="arithmatex">\(G\)</span> is the gravitational constant (<span class="arithmatex">\(6.674 \times 10^{-11} \, \text{N m}^2/\text{kg}^2\)</span>)</li>
+<li><span class="arithmatex">\(M\)</span> is the mass of the celestial body</li>
+<li><span class="arithmatex">\(m\)</span> is the mass of the orbiting object</li>
+<li><span class="arithmatex">\(r\)</span> is the radius of the orbit (approximated as the radius of the celestial body for orbits close to the surface)</li>
+</ul>
+<p>Solving for <span class="arithmatex">\(v_1\)</span>:</p>
+<div class="arithmatex">\[
+v_1 = \sqrt{\frac{GM}{r}}
+\]</div>
+<h3 id="second-cosmic-velocity-v_2">Second Cosmic Velocity (<span class="arithmatex">\(v_2\)</span>)</h3>
+<p>The kinetic energy of the object must equal the gravitational potential energy:</p>
+<div class="arithmatex">\[
+\frac{1}{2}mv_2^2 = \frac{GMm}{r}
+\]</div>
+<p>Solving for <span class="arithmatex">\(v_2\)</span>:</p>
+<div class="arithmatex">\[
+v_2 = \sqrt{\frac{2GM}{r}}
+\]</div>
+<p>Thus, <span class="arithmatex">\(v_2 = \sqrt{2} v_1\)</span>.</p>
+<h3 id="third-cosmic-velocity-v_3">Third Cosmic Velocity (<span class="arithmatex">\(v_3\)</span>)</h3>
+<p>To calculate the third cosmic velocity, we consider the object's initial velocity (Earth's orbital velocity) and the additional velocity needed to escape the Sun's gravitational pull.</p>
+<ol>
+<li>
+<p><strong>Earth's Orbital Velocity (<span class="arithmatex">\(v_{Earth}\)</span>):</strong></p>
+<ul>
+<li>This is the first cosmic velocity with respect to the Sun at Earth's orbital radius.</li>
+</ul>
+</li>
+<li>
+<p><strong>Solar Escape Velocity at Earth's Orbit (<span class="arithmatex">\(v_{SolarEscape}\)</span>):</strong></p>
+<ul>
+<li>This is the second cosmic velocity with respect to the Sun at Earth's orbital radius.</li>
+</ul>
+</li>
+<li>
+<p><strong>Third Cosmic Velocity (<span class="arithmatex">\(v_3\)</span>):</strong></p>
+<ul>
+<li>The object needs to escape the solar system. The earth is already moving at its orbital velocity. The object needs to add more velocity to reach solar escape velocity. The object also needs to overcome earths gravitational pull.</li>
+<li>The calculation is complex and depends on the direction of launch. A simplified approach is:</li>
+<li><span class="arithmatex">\(v_3 = \sqrt{v_{SolarEscape}^2 + (v_2 - v_{Earth})^2}\)</span></li>
+</ul>
+</li>
+</ol>
+<h2 id="python-implementation">Python Implementation</h2>
+<pre><code class="language-python">import math
+import matplotlib.pyplot as plt
+
+def calculate_cosmic_velocities(mass, radius, solar_mass=1.989e30, earth_orbital_radius=1.496e11):
+    G = 6.674e-11
+
+    v1 = math.sqrt((G * mass) / radius)
+    v2 = math.sqrt((2 * G * mass) / radius)
+
+    earth_orbital_velocity = math.sqrt((G * solar_mass) / earth_orbital_radius)
+    solar_escape_velocity = math.sqrt((2 * G * solar_mass) / earth_orbital_radius)
+
+    v3 = math.sqrt(solar_escape_velocity**2 + (v2 - earth_orbital_velocity)**2)
+
+    return v1, v2, v3
+
+celestial_bodies = {
+    "Earth": {"mass": 5.972e24, "radius": 6.371e6},
+    "Mars": {"mass": 6.39e23, "radius": 3.390e6},
+    "Jupiter": {"mass": 1.898e27, "radius": 6.9911e7},
+}
+
+velocities = {}
+for body, data in celestial_bodies.items():
+    v1, v2, v3 = calculate_cosmic_velocities(data["mass"], data["radius"])
+    velocities[body] = {"v1": v1, "v2": v2, "v3": v3}
+
+print("Cosmic Velocities:")
+for body, v in velocities.items():
+    print(f"{body}:")
+    print(f"  v1 (Orbital): {v['v1']:.2f} m/s")
+    print(f"  v2 (Escape): {v['v2']:.2f} m/s")
+    print(f"  v3 (Solar Escape): {v['v3']:.2f} m/s")
+
+# Visualization
+bodies = list(velocities.keys())
+v1_values = [velocities[body]["v1"] for body in bodies]
+v2_values = [velocities[body]["v2"] for body in bodies]
+v3_values = [velocities[body]["v3"] for body in bodies]
+
+plt.figure(figsize=(10, 6))
+plt.plot(bodies, v1_values, marker='o', label='First Cosmic Velocity (v1)')
+plt.plot(bodies, v2_values, marker='o', label='Second Cosmic Velocity (v2)')
+plt.plot(bodies, v3_values, marker='o', label='Third Cosmic Velocity (v3)')
+plt.xlabel("Celestial Bodies")
+plt.ylabel("Velocity (m/s)")
+plt.title("Cosmic Velocities of Celestial Bodies")
+plt.legend()
+plt.grid(True)
+plt.show()
+</code></pre>
+<p><img alt="alt text" src="../Figure_21.png"/></p>
+<h2 id="importance-in-space-exploration">Importance in Space Exploration</h2>
+<h3 id="launching-satellites">Launching Satellites:</h3>
+<p>The <strong>first cosmic velocity</strong> is crucial for placing satellites into stable orbits around Earth or other celestial bodies. It ensures that the satellite achieves a balance between gravitational pull and its forward motion, allowing it to remain in orbit without additional propulsion.</p>
+<h3 id="missions-to-other-planets">Missions to Other Planets:</h3>
+<p>The <strong>second cosmic velocity</strong> is essential for escaping a planet's gravitational pull for interplanetary missions. Achieving this velocity allows spacecraft to break free from Earth's gravity and travel to other planets or celestial bodies.</p>
+<h3 id="interstellar-travel">Interstellar Travel:</h3>
+<p>The <strong>third cosmic velocity</strong> is a fundamental consideration for missions aiming to leave the solar system. It provides the necessary speed to overcome the Sun's gravitational influence and venture into interstellar space.</p>
+<h3 id="achieving-these-velocities">Achieving These Velocities:</h3>
+<p>Achieving these velocities requires significant energy, which drives the development of advanced propulsion systems. Innovations in rocket technology, fuel efficiency, and energy sources are critical to meeting these velocity requirements.</p>
+<h3 id="trajectory-planning">Trajectory Planning:</h3>
+<p>Understanding these velocities is critical for calculating trajectories, ensuring that spacecraft reach their destinations with minimal fuel consumption. Precise calculations are necessary to optimize mission efficiency and reduce costs.</p>
+<h3 id="asteroid-deflection">Asteroid Deflection:</h3>
+<p>Calculating the escape velocity from asteroids is important for missions aiming to deflect or redirect them. Understanding the gravitational influence of asteroids helps in planning missions to mitigate potential threats to Earth.</p>
+<hr/>
+<h2 id="conclusion">Conclusion</h2>
+<p>The concepts of <strong>first, second, and third cosmic velocities</strong> are fundamental to space exploration. They provide the necessary framework for understanding the energy requirements for orbital maneuvers and interplanetary travel. The mathematical derivations and calculations presented here are essential tools for planning and executing space missions, pushing the boundaries of human exploration.</p>
 </div>
 </div><footer>
 <div aria-label="Footer Navigation" class="rst-footer-buttons" role="navigation">
