@@ -28,11 +28,29 @@ The general solution to this equation consists of two parts: the homogeneous sol
 
 **Homogeneous Solution:**
 
-The homogeneous equation is $\frac{d^2\theta}{dt^2} + b\frac{d\theta}{dt} + \omega_0^2\theta = 0$. The form of the homogeneous solution depends on the discriminant of the characteristic equation $r^2 + br + \omega_0^2 = 0$, which is $\Delta = b^2 - 4\omega_0^2$.
+The homogeneous equation is $\frac{d^2\theta}{dt^2} + b\frac{d\theta}{dt} + \omega_0^2\theta = 0$. 
 
-* **Overdamped ($b^2 > 4\omega_0^2$):** $\theta_h(t) = C_1e^{r_1t} + C_2e^{r_2t}$, where $r_{1,2} = \frac{-b \pm \sqrt{b^2 - 4\omega_0^2}}{2}$ are real and negative. The oscillations decay exponentially without oscillating.
-* **Critically Damped ($b^2 = 4\omega_0^2$):** $\theta_h(t) = (C_1 + C_2t)e^{-\frac{b}{2}t}$. The oscillations decay as quickly as possible without oscillating.
-* **Underdamped ($b^2 < 4\omega_0^2$):** $\theta_h(t) = e^{-\frac{b}{2}t}(C_1\cos(\omega_d t) + C_2\sin(\omega_d t)) = C e^{-\frac{b}{2}t}\cos(\omega_d t - \phi)$, where $\omega_d = \sqrt{\omega_0^2 - \frac{b^2}{4}}$ is the damped angular frequency, and $C$ and $\phi$ are constants determined by initial conditions. The oscillations decay exponentially with a frequency lower than the natural frequency.
+The form of the homogeneous solution depends on the discriminant of the characteristic equation 
+
+$r^2 + br + \omega_0^2 = 0$, which is $\Delta = b^2 - 4\omega_0^2$.
+
+* **Overdamped** 
+
+    ($b^2 > 4\omega_0^2$):$\theta_h(t) = C_1e^{r_1t} + C_2e^{r_2t}$, 
+ 
+    where $r_{1,2} = \frac{-b \pm \sqrt{b^2 - 4\omega_0^2}}{2}$ are real and negative. 
+
+    The oscillations decay exponentially without oscillating.
+* **Critically Damped**
+
+    ($b^2 = 4\omega_0^2$):$\theta_h(t) = (C_1 + C_2t)e^{-\frac{b}{2}t}$. 
+    
+    The oscillations decay as quickly as possible without oscillating.
+* **Underdamped**
+    
+    ($b^2 < 4\omega_0^2$):$\theta_h(t) = e^{-\frac{b}{2}t}(C_1\cos(\omega_d t) + C_2\sin(\omega_d t)) = C e^{-\frac{b}{2}t}\cos(\omega_d t - \phi)$, 
+    
+    where $\omega_d = \sqrt{\omega_0^2 - \frac{b^2}{4}}$ is the damped angular frequency, and $C$ and $\phi$ are constants determined by initial conditions. The oscillations decay exponentially with a frequency lower than the natural frequency.
 
 ![alt text](Figure_1.png)
 
@@ -72,7 +90,11 @@ This resonance frequency is slightly lower than the natural frequency $\omega_0$
 
 At resonance, the driving force is most effectively transferring energy to the pendulum. The energy input from the driving force compensates for the energy dissipated by damping, leading to oscillations with the largest possible amplitude for a given driving amplitude.
 
-The power supplied by the driving force is $P_{in}(t) = F_{drive}(t) \cdot v(t)$, where $F_{drive}(t) = mA\cos(\omega t)$ (assuming mass $m$ is implicitly included in $A$) and $v(t) = L\frac{d\theta}{dt}$. The average power input over a cycle is equal to the average power dissipated by damping, $P_{dissipated} = b \langle (\frac{d\theta}{dt})^2 \rangle$. At resonance, the energy transfer is maximized, which can lead to very large amplitudes if damping is small.
+The power supplied by the driving force is: $P_{in}(t) = F_{drive}(t) \cdot v(t)$,
+
+where $F_{drive}(t) = mA\cos(\omega t)$ (assuming mass $m$ is implicitly included in $A$) and $v(t) = L\frac{d\theta}{dt}$.
+
+The average power input over a cycle is equal to the average power dissipated by damping, $P_{dissipated} = b \langle (\frac{d\theta}{dt})^2 \rangle$. At resonance, the energy transfer is maximized, which can lead to very large amplitudes if damping is small.
 
 ### 2 Analysis of Dynamics
 
