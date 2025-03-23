@@ -18,25 +18,16 @@ $$\vec{a} = \frac{\vec{F}}{m} = \vec{g} = (0, -g)$$
 This leads to the following differential equations:
 
 $$\frac{d^2x}{dt^2} = 0$$
-
-<br>
-
 $$\frac{d^2y}{dt^2} = -g$$
 
 Integrating once with respect to time $t$, we obtain the velocity components:
 
 $$\frac{dx}{dt} = v_x(t) = v_{0x} = v_0 \cos(\theta)$$
-
-<br>
-
 $$\frac{dy}{dt} = v_y(t) = v_{0y} - gt = v_0 \sin(\theta) - gt$$
 
 Integrating again, we get the position components:
 
 $$x(t) = v_{0x} t = v_0 \cos(\theta) t$$
-
-<br>
-
 $$y(t) = v_{0y} t - \frac{1}{2}gt^2 = v_0 \sin(\theta) t - \frac{1}{2}gt^2$$
 
 These are the parametric equations describing the projectile's trajectory.
