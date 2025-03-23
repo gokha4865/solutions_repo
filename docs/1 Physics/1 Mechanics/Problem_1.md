@@ -17,10 +17,7 @@ $$\vec{a} = \frac{\vec{F}}{m} = \vec{g} = (0, -g)$$
 
 This leads to the following differential equations:
 
-$$\frac{d^2x}{dt^2} = 0$$
-<br>
-
-$$\frac{d^2y}{dt^2} = -g$$
+$$\frac{d^2x}{dt^2} = 0 \\ \frac{d^2y}{dt^2} = -g$$
 
 Integrating once with respect to time $t$, we obtain the velocity components:
 
