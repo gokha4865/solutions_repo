@@ -7,7 +7,8 @@ The motion of a forced damped pendulum is governed by the following second-order
 
 $\frac{d^2\theta}{dt^2} + b\frac{d\theta}{dt} + \frac{g}{L}\sin\theta = A\cos(\omega t)$
 
-where:
+where :
+
 * $\theta(t)$ is the angular displacement of the pendulum from the vertical.
 * $t$ is time.
 * $b$ is the damping coefficient (representing energy dissipation).
