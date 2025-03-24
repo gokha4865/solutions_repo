@@ -192,7 +192,8 @@ def plot_trajectories_drag(v0, angles, drag_coeff=0.01):
 v0 = 25
 plot_trajectories_drag(v0, [30, 45, 60])
 ```
-![alt text](trajectories_drag.png)
+![alt text](Figure_1-1.png)
+
 ### These graphs demonstrate the impact of air resistance on projectile trajectories, showcasing the deviation from the ideal parabolic path.
 
 <br>
