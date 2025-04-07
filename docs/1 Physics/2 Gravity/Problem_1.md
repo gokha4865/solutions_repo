@@ -207,11 +207,11 @@ plt.show()
 
 ```
 
-![alt text](Figure_1-1.png)
+![alt text](Figure_planets.png)
 
 ### This plot demonstrates the linear relationship between the square of the orbital period and the cube of the orbital radius, visually confirming Kepler's Third Law. The slope of the linear fit is proportional to $1/(GM)$.
 
-The Python code calculates the orbital periods for a range of circular orbital radii around the Earth using Kepler's Third Law. It then plots the relationship between the radius and the period, and also plots the square of the period against the cube of the radius to demonstrate the linear relationship predicted by Kepler's Third Law. The linear fit to the $T^2$ vs $r^3$ plot will have a slope equal to $\frac{4\pi^2}{GM}$.
+The Python code calculates and plots the relationship between the radius and the period, and also plots the square of the period against the cube of the radius to demonstrate the linear relationship predicted by Kepler's Third Law. The linear fit to the $T^2$ vs $r^3$ plot will have a slope equal to $\frac{4\pi^2}{GM}$.
 
 ---
 
