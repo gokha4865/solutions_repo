@@ -167,28 +167,44 @@ M = 1.989 * 10**30   # Mass of the Sun (kg)
 def orbital_period(r):
     return np.sqrt((4 * np.pi**2 * r**3) / (G * M))
 
-# Example: Earth's orbit
-r_earth = 1.496 * 10**11  # Earth's orbital radius (m)
-T_earth = orbital_period(r_earth)
-print(f"Orbital period of Earth: {T_earth / (24 * 3600)} days")
+# Radii for the curve
+radii = np.linspace(1e10, 5e12, 100)  # in meters
+T_squared = (orbital_period(radii))**2
+r_cubed = radii**3
 
-# Plotting orbital period vs radius
-radii = np.linspace(1e10, 5e11, 100)  # Range of radii (m)
-periods = orbital_period(radii) / (24 * 3600)  # Convert to days
+# Planetary data (semi-major axis in meters, orbital period in seconds)
+planets = {
+    "Mercury": (5.79e10, 7.6e6),
+    "Venus":   (1.082e11, 1.94e7),
+    "Earth":   (1.496e11, 3.156e7),
+    "Mars":    (2.279e11, 5.93e7),
+    "Jupiter": (7.785e11, 3.74e8)
+}
 
+# Prepare planet data for plotting
+planet_r_cubed = [r**3 for r, T in planets.values()]
+planet_T_squared = [T**2 for r, T in planets.values()]
+
+# Plot T^2 vs r^3 on a log-log scale
 plt.figure(figsize=(8, 6))
-plt.plot(radii, periods, label="Orbital Period vs Radius")
-plt.xlabel("Orbital Radius (m)")
-plt.ylabel("Orbital Period (days)")
-plt.title("Kepler's Third Law: Orbital Period vs Radius")
-plt.grid()
+plt.plot(r_cubed, T_squared, label="T² vs r³ (Kepler's Law)", color='blue')
+plt.scatter(planet_r_cubed, planet_T_squared, color='red', s=50, label="Planets", zorder=5)
+
+# Add planet labels
+for name, (r, T) in planets.items():
+    plt.text(r**3, T**2, name, fontsize=9, ha='right')
+
+plt.xscale('log')
+plt.yscale('log')
+plt.xlabel("r³ (m³)")
+plt.ylabel("T² (s²)")
+plt.title("Kepler's Third Law: T² vs r³ (log-log scale)")
+plt.grid(True, which='both', ls='--')
 plt.legend()
+plt.tight_layout()
 plt.show()
+
 ```
-
-![alt text](Figure_1.png)
-
-### This plot shows the relationship between the orbital radius and the orbital period for circular orbits around the Earth, as calculated by Kepler's Third Law.
 
 ![alt text](Figure_2.png)
 
