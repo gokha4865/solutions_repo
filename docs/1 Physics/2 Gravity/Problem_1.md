@@ -198,15 +198,16 @@ plt.xscale('log')
 plt.yscale('log')
 plt.xlabel("r³ (m³)")
 plt.ylabel("T² (s²)")
-plt.title("Kepler's Third Law: T² vs r³ (log-log scale)")
+plt.title("Kepler's Third Law: T² vs r³")
 plt.grid(True, which='both', ls='--')
 plt.legend()
 plt.tight_layout()
 plt.show()
 
+
 ```
 
-![alt text](Figure_2.png)
+![alt text](Figure_1-1.png)
 
 ### This plot demonstrates the linear relationship between the square of the orbital period and the cube of the orbital radius, visually confirming Kepler's Third Law. The slope of the linear fit is proportional to $1/(GM)$.
 
