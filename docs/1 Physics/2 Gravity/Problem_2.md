@@ -99,16 +99,6 @@ $$
 
 ---
 
-## 📊 Results (Velocities in km/s)
-
-| Body     | v₁ (Orbital) | v₂ (Escape) | v₃ (Solar Escape) |
-|----------|---------------|--------------|--------------------|
-| Earth    | 7.91 km/s      | 11.18 km/s    | 16.65 km/s         |
-| Moon     | 1.68 km/s      | 2.38 km/s     | 15.90 km/s         |
-| Mars     | 3.55 km/s      | 5.03 km/s     | 16.12 km/s         |
-| Jupiter  | 42.09 km/s     | 59.55 km/s    | 64.16 km/s         |
-
-
 ## Python Implementation
 
 ```python
@@ -176,6 +166,17 @@ plt.grid(True)
 plt.tight_layout()
 plt.show()
 ```
+
+## 📊 Results (Velocities in km/s)
+
+| Body     | v₁ (Orbital) | v₂ (Escape) | v₃ (Solar Escape) |
+|----------|---------------|--------------|--------------------|
+| Earth    | 7.91 km/s      | 11.18 km/s    | 16.65 km/s         |
+| Moon     | 1.68 km/s      | 2.38 km/s     | 15.90 km/s         |
+| Mars     | 3.55 km/s      | 5.03 km/s     | 16.12 km/s         |
+| Jupiter  | 42.09 km/s     | 59.55 km/s    | 64.16 km/s         |
+
+---
 
 ![alt text](Figure_1-3.png)
 
