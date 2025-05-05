@@ -88,6 +88,26 @@ $$
 \Delta v = v_{SolarEscape} - v_{EarthOrbital}
 $$
 
+## 🌍 Parameters Used
+
+| Celestial Body | Mass (kg)        | Radius (m)       |
+|----------------|------------------|------------------|
+| Earth          | 5.972 × 10²⁴     | 6.371 × 10⁶      |
+| Moon           | 7.342 × 10²²     | 1.7371 × 10⁶     |
+| Mars           | 6.39 × 10²³      | 3.390 × 10⁶      |
+| Jupiter        | 1.898 × 10²⁷     | 6.9911 × 10⁷     |
+
+---
+
+## 📊 Results (Velocities in km/s)
+
+| Body     | v₁ (Orbital) | v₂ (Escape) | v₃ (Solar Escape) |
+|----------|---------------|--------------|--------------------|
+| Earth    | 7.91 km/s      | 11.18 km/s    | 16.65 km/s         |
+| Moon     | 1.68 km/s      | 2.38 km/s     | 15.90 km/s         |
+| Mars     | 3.55 km/s      | 5.03 km/s     | 16.12 km/s         |
+| Jupiter  | 42.09 km/s     | 59.55 km/s    | 64.16 km/s         |
+
 
 ## Python Implementation
 
