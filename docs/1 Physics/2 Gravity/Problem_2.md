@@ -68,15 +68,33 @@ To calculate the third cosmic velocity, we consider the object's initial velocit
 
 3.  **Third Cosmic Velocity ($v_3$):**
 
-    * The object needs to escape the solar system. The earth is already moving at its orbital velocity. The object needs to add more velocity to reach solar escape velocity. The object also needs to overcome earths gravitational pull.
-    * The calculation is complex and depends on the direction of launch. A simplified approach is:
-    * $v_3 = \sqrt{v_{SolarEscape}^2 + (v_2 - v_{Earth})^2}$
+    * To calculate the third cosmic velocity (escape from the Solar System starting at Earth's surface), we account for:
+
+    * Escaping Earth's gravity — requiring Earth's second cosmic velocity $v_2$.
+    * Reaching solar escape velocity at Earth's orbital radius ($v_{SolarEscape}$).
+    * Compensating for the orbital velocity of Earth around the Sun ($v_{EarthOrbital}$), which assists or hinders depending on direction.
+
+#### Simplified Calculation:
+
+$$
+v_3 = \sqrt{v_{SolarEscape}^2 + (v_2 - v_{EarthOrbital})^2}
+$$
+
+This expression assumes the spacecraft launches in the same direction as Earth’s orbital motion. The $(v_2 - v_{EarthOrbital})$ term reflects the adjustment needed after escaping Earth to reach the solar escape velocity.
+
+Alternatively, if launching directly from Earth's orbit, a more direct delta-v estimate is:
+
+$$
+\Delta v = v_{SolarEscape} - v_{EarthOrbital}
+$$
+
 
 ## Python Implementation
 
 ```python
 import math
 import matplotlib.pyplot as plt
+import pandas as pd
 
 def calculate_cosmic_velocities(mass, radius, solar_mass=1.989e30, earth_orbital_radius=1.496e11):
     G = 6.674e-11
@@ -87,12 +105,15 @@ def calculate_cosmic_velocities(mass, radius, solar_mass=1.989e30, earth_orbital
     earth_orbital_velocity = math.sqrt((G * solar_mass) / earth_orbital_radius)
     solar_escape_velocity = math.sqrt((2 * G * solar_mass) / earth_orbital_radius)
 
+    # Simplified version: escape Earth and reach solar escape from Earth's orbit
     v3 = math.sqrt(solar_escape_velocity**2 + (v2 - earth_orbital_velocity)**2)
 
     return v1, v2, v3
 
+# Add Moon to celestial bodies
 celestial_bodies = {
     "Earth": {"mass": 5.972e24, "radius": 6.371e6},
+    "Moon": {"mass": 7.342e22, "radius": 1.7371e6},
     "Mars": {"mass": 6.39e23, "radius": 3.390e6},
     "Jupiter": {"mass": 1.898e27, "radius": 6.9911e7},
 }
@@ -102,12 +123,20 @@ for body, data in celestial_bodies.items():
     v1, v2, v3 = calculate_cosmic_velocities(data["mass"], data["radius"])
     velocities[body] = {"v1": v1, "v2": v2, "v3": v3}
 
-print("Cosmic Velocities:")
+print("Cosmic Velocities (in m/s):")
 for body, v in velocities.items():
     print(f"{body}:")
     print(f"  v1 (Orbital): {v['v1']:.2f} m/s")
     print(f"  v2 (Escape): {v['v2']:.2f} m/s")
     print(f"  v3 (Solar Escape): {v['v3']:.2f} m/s")
+
+# Tabular display
+df = pd.DataFrame(velocities).T
+df.columns = ["v1 (Orbital)", "v2 (Escape)", "v3 (Solar Escape)"]
+df_kms = df.applymap(lambda x: f"{x/1000:.2f} km/s")
+
+print("\nCosmic Velocities Table (in km/s):")
+print(df_kms)
 
 # Visualization
 bodies = list(velocities.keys())
@@ -116,14 +145,15 @@ v2_values = [velocities[body]["v2"] for body in bodies]
 v3_values = [velocities[body]["v3"] for body in bodies]
 
 plt.figure(figsize=(10, 6))
-plt.plot(bodies, v1_values, marker='o', label='First Cosmic Velocity (v1)')
-plt.plot(bodies, v2_values, marker='o', label='Second Cosmic Velocity (v2)')
-plt.plot(bodies, v3_values, marker='o', label='Third Cosmic Velocity (v3)')
+plt.plot(bodies, v1_values, marker='o', linestyle='--', label='First Cosmic Velocity (v1)')
+plt.plot(bodies, v2_values, marker='o', linestyle='--', label='Second Cosmic Velocity (v2)')
+plt.plot(bodies, v3_values, marker='o', linestyle='--', label='Third Cosmic Velocity (v3)')
 plt.xlabel("Celestial Bodies")
 plt.ylabel("Velocity (m/s)")
 plt.title("Cosmic Velocities of Celestial Bodies")
 plt.legend()
 plt.grid(True)
+plt.tight_layout()
 plt.show()
 ```
 
