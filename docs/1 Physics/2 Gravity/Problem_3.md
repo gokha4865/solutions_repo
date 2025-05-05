@@ -111,7 +111,7 @@ Each velocity represents a different scenario for the payload's trajectory, whic
 The Earth is drawn to scale in the plot as a **blue circle**, and the trajectories are displayed accordingly.
 
 ---
-
+1. **Re-entry Trajectories:** For velocities below the the orbital velocity of Earth at this altitude. 
 1. **Elliptical Trajectories:** For velocities near the orbital velocity of Earth at this altitude.
 2. **Escape Trajectories:** For velocities greater than the escape velocity of Earth at the given altitude.
 
@@ -232,18 +232,6 @@ plt.show()
 ![alt text](Figure_2-1.png)
 ![alt text](Figure_3.png)
 
-
----
-
-## Graphical Representations
-
-The Python script generates a plot showing the three different types of trajectories simulated:
-
-- **Reentry Trajectory:** A path that intersects with Earth.
-- **Elliptical/Orbital Trajectory:** A closed path around Earth.
-- **Escape Trajectory:** An open path where the payload moves away from Earth.
-
-The plot also includes a representation of Earth to scale.
 
 ---
 
