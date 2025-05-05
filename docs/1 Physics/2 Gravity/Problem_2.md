@@ -157,7 +157,7 @@ plt.tight_layout()
 plt.show()
 ```
 
-![alt text](Figure_21.png)
+![alt text](Figure_1-3.png)
 
 ## Importance in Space Exploration
 
