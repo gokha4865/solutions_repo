@@ -125,73 +125,112 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 # Constants
-G = 6.674e-11  # Gravitational constant (m^3 kg^-1 s^-2)
-M_earth = 5.972e24  # Mass of Earth (kg)
-R_earth = 6371e3  # Radius of Earth (m)
+G = 6.674e-11       # Gravitational constant (m^3 kg^-1 s^-2)
+M_earth = 5.972e24  # Earth mass (kg)
+R_earth = 6371e3    # Earth radius (m)
 
-# Initial payload altitude and position
-altitude = 800e3  # 800 km
+# Initial conditions
+altitude = 800e3
 initial_distance = R_earth + altitude
-initial_position = [initial_distance, 0]  # Right side of Earth
+initial_position = [initial_distance, 0]  # on the right side
 
-# Initial velocities from 5.0 to 13.0 km/s (converted to m/s)
-velocities_kms = np.arange(5.0, 13.5, 0.5)  # km/s
-velocities = velocities_kms * 1e3  # m/s
+# Velocity range (in m/s)
+velocities_kms = np.arange(5.0, 13.5, 0.5)
+velocities = velocities_kms * 1e3
 
-# Simulation parameters
-dt = 1  # time step in seconds
-time_steps = 20000  # number of steps
+# Time parameters
+dt = 1  # time step (s)
+time_steps = 20000
 
-def simulate_trajectory(position, velocity, time_steps, dt):
-    """
-    Simulate trajectory using the Euler method under Earth's gravity.
-    """
+# Containers for categorized results
+crashes = []
+orbits = []
+escapes = []
+
+def simulate_trajectory(position, velocity, steps, dt):
     pos = np.array(position, dtype=float)
     vel = np.array(velocity, dtype=float)
-    trajectory = [pos.copy()]
-
-    for _ in range(time_steps):
+    traj = [pos.copy()]
+    
+    for _ in range(steps):
         r = np.linalg.norm(pos)
         if r <= R_earth:
-            break  # Hit Earth
+            return np.array(traj), "crash"
+        if r > 10 * initial_distance:
+            return np.array(traj), "escape"
 
         acc = -G * M_earth * pos / r**3
         vel += acc * dt
         pos += vel * dt
-        trajectory.append(pos.copy())
+        traj.append(pos.copy())
+    
+    return np.array(traj), "orbit"
 
-    return np.array(trajectory)
-
-# Plotting
-plt.figure(figsize=(10, 10))
-
-# Plot Earth
-earth = plt.Circle((0, 0), R_earth, color='blue', alpha=0.3, label="Earth")
-plt.gca().add_patch(earth)
-
-# Simulate and plot each trajectory
+# Simulate all velocities
 for v in velocities:
-    initial_velocity = [0, v]  # upward (along y-axis)
-    trajectory = simulate_trajectory(initial_position, initial_velocity, time_steps, dt)
-    plt.plot(trajectory[:, 0], trajectory[:, 1], label=f"{v/1000:.1f} km/s")
+    v0 = [0, v]
+    traj, kind = simulate_trajectory(initial_position, v0, time_steps, dt)
+    if kind == "crash":
+        crashes.append((v, traj))
+    elif kind == "orbit":
+        orbits.append((v, traj))
+    elif kind == "escape":
+        escapes.append((v, traj))
 
-# Graph styling
-plt.scatter(0, 0, color='blue')  # Earth's center
-plt.xlabel("X Position (m)")
-plt.ylabel("Y Position (m)")
-plt.title("Payload Trajectories from 800 km Altitude (Euler Method)")
+# --- Plot Crash Cases (Zoomed In) ---
+plt.figure(figsize=(8, 8))
+for v, traj in crashes:
+    plt.plot(traj[:, 0], traj[:, 1], label=f"{v/1000:.1f} km/s")
+plt.gca().add_patch(plt.Circle((0, 0), R_earth, color='blue', alpha=0.3))
+plt.scatter(0, 0, color='blue')
+plt.title("Trajectories that Crash into Earth")
+plt.xlabel("X (m)")
+plt.ylabel("Y (m)")
 plt.axis('equal')
-plt.xlim(-2.0e7, 3.0e7)  # Zoomed out slightly
-plt.ylim(-2.0e7, 3.0e7)
+plt.xlim(-1e7, 1.5e7)
+plt.ylim(-1e7, 1.5e7)
 plt.grid(True)
-plt.legend(title="Initial Speed")
+plt.legend()
 plt.tight_layout()
 plt.show()
 
+# --- Plot Orbital Cases (Zoomed Out) ---
+plt.figure(figsize=(8, 8))
+for v, traj in orbits:
+    plt.plot(traj[:, 0], traj[:, 1], label=f"{v/1000:.1f} km/s")
+plt.gca().add_patch(plt.Circle((0, 0), R_earth, color='blue', alpha=0.3))
+plt.scatter(0, 0, color='blue')
+plt.title("Orbital Trajectories")
+plt.xlabel("X (m)")
+plt.ylabel("Y (m)")
+plt.axis('equal')
+plt.xlim(-5e7, 5e7)
+plt.ylim(-5e7, 5e7)
+plt.grid(True)
+plt.legend()
+plt.tight_layout()
+plt.show()
+
+# --- Plot Escape Cases (Zoomed Out More) ---
+plt.figure(figsize=(8, 8))
+for v, traj in escapes:
+    plt.plot(traj[:, 0], traj[:, 1], label=f"{v/1000:.1f} km/s")
+plt.gca().add_patch(plt.Circle((0, 0), R_earth, color='blue', alpha=0.3))
+plt.scatter(0, 0, color='blue')
+plt.title("Trajectories that Escape Earth")
+plt.xlabel("X (m)")
+plt.ylabel("Y (m)")
+plt.axis('equal')
+plt.xlim(-8e7, 1e8)
+plt.ylim(-8e7, 1e8)
+plt.grid(True)
+plt.legend()
+plt.tight_layout()
+plt.show()
 ```
-
-![alt text](Figure_1-4.png)
-
+![alt text](Figure_1-5.png)
+![alt text](Figure_2-1.png)
+![alt text](Figure_3.png)
 
 ## Analysis and Discussion
 
