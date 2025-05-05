@@ -372,12 +372,12 @@ plt.show()
 <img alt="alt text" src="../Figure_3.png"/></p>
 <h2 id="analysis-and-discussion">Analysis and Discussion</h2>
 <p>The simulation demonstrates different types of trajectories based on the initial velocity of the payload.</p>
-<h3 id="orbital-insertion">Orbital Insertion:</h3>
-<p>For a payload to be inserted into a stable orbit around Earth, its initial velocity at a certain altitude must be carefully chosen. The velocity should be high enough to counteract gravity and prevent the payload from falling back to Earth, but not so high that it escapes Earth's gravitational pull. The simulation with <code>initial_velocity_circular</code> shows an elliptical trajectory, which, with fine-tuning of the initial velocity, could become a circular orbit. Orbital insertion typically involves achieving a specific velocity vector at a desired altitude.</p>
 <h3 id="reentry">Reentry:</h3>
-<p>A reentry trajectory is one where the payload is directed back towards Earth's atmosphere. This occurs when the payload's velocity is lower than the orbital velocity at its altitude, causing it to lose altitude over time due to gravity. The <code>initial_velocity_reentry</code> case illustrates this, where the payload's elliptical orbit intersects with Earth.</p>
+<p>A reentry trajectory is one where the payload is directed back towards Earth's atmosphere. This occurs when the payload's velocity is lower than the orbital velocity at its altitude, causing it to lose altitude over time due to gravity. The <code>Crash into Earth</code> case illustrates this, where the payload's elliptical orbit intersects with Earth.</p>
+<h3 id="orbital-insertion">Orbital Insertion:</h3>
+<p>For a payload to be inserted into a stable orbit around Earth, its initial velocity at a certain altitude must be carefully chosen. The velocity should be high enough to counteract gravity and prevent the payload from falling back to Earth, but not so high that it escapes Earth's gravitational pull. The simulation with <code>Orbital trajectories</code> shows an elliptical trajectory, which, with fine-tuning of the initial velocity, could become a circular orbit. Orbital insertion typically involves achieving a specific velocity vector at a desired altitude.</p>
 <h3 id="escape">Escape:</h3>
-<p>An escape trajectory is achieved when the payload's initial velocity is equal to or greater than the escape velocity at its initial position. In this case, the payload will have enough kinetic energy to overcome Earth's gravitational potential energy and move away from Earth indefinitely (following a parabolic or hyperbolic path). The <code>initial_velocity_escape</code> simulation shows the payload moving away from Earth.</p>
+<p>An escape trajectory is achieved when the payload's initial velocity is equal to or greater than the escape velocity at its initial position. In this case, the payload will have enough kinetic energy to overcome Earth's gravitational potential energy and move away from Earth indefinitely (following a parabolic or hyperbolic path). The <code>Escape Earth</code> simulation shows the payload moving away from Earth.</p>
 <hr/>
 <h2 id="graphical-representations">Graphical Representations</h2>
 <p>The Python script generates a plot showing the three different types of trajectories simulated:</p>
