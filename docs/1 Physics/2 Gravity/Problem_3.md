@@ -187,6 +187,7 @@ plt.grid(True)
 plt.legend(title="Initial Speed")
 plt.tight_layout()
 plt.show()
+
 ```
 
 ![alt text](Figure_1-4.png)
