@@ -370,6 +370,16 @@ plt.show()
 <p><img alt="alt text" src="../Figure_1-5.png"/>
 <img alt="alt text" src="../Figure_2-1.png"/>
 <img alt="alt text" src="../Figure_3.png"/></p>
+<hr/>
+<h2 id="graphical-representations">Graphical Representations</h2>
+<p>The Python script generates a plot showing the three different types of trajectories simulated:</p>
+<ul>
+<li><strong>Reentry Trajectory:</strong> A path that intersects with Earth.</li>
+<li><strong>Elliptical/Orbital Trajectory:</strong> A closed path around Earth.</li>
+<li><strong>Escape Trajectory:</strong> An open path where the payload moves away from Earth.</li>
+</ul>
+<p>The plot also includes a representation of Earth to scale.</p>
+<hr/>
 <h2 id="analysis-and-discussion">Analysis and Discussion</h2>
 <p>The simulation demonstrates different types of trajectories based on the initial velocity of the payload.</p>
 <h3 id="reentry">Reentry:</h3>
@@ -378,15 +388,6 @@ plt.show()
 <p>For a payload to be inserted into a stable orbit around Earth, its initial velocity at a certain altitude must be carefully chosen. The velocity should be high enough to counteract gravity and prevent the payload from falling back to Earth, but not so high that it escapes Earth's gravitational pull. The simulation with <code>Orbital trajectories</code> shows an elliptical trajectory, which, with fine-tuning of the initial velocity, could become a circular orbit. Orbital insertion typically involves achieving a specific velocity vector at a desired altitude.</p>
 <h3 id="escape">Escape:</h3>
 <p>An escape trajectory is achieved when the payload's initial velocity is equal to or greater than the escape velocity at its initial position. In this case, the payload will have enough kinetic energy to overcome Earth's gravitational potential energy and move away from Earth indefinitely (following a parabolic or hyperbolic path). The <code>Escape Earth</code> simulation shows the payload moving away from Earth.</p>
-<hr/>
-<h2 id="graphical-representations">Graphical Representations</h2>
-<p>The Python script generates a plot showing the three different types of trajectories simulated:</p>
-<ul>
-<li><strong>Elliptical/Orbital Trajectory:</strong> A closed path around Earth.</li>
-<li><strong>Escape Trajectory:</strong> An open path where the payload moves away from Earth.</li>
-<li><strong>Reentry Trajectory:</strong> A path that intersects with Earth.</li>
-</ul>
-<p>The plot also includes a representation of Earth to scale.</p>
 <hr/>
 <h2 id="further-considerations-and-improvements">Further Considerations and Improvements</h2>
 <ol>
