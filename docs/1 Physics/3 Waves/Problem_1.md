@@ -17,10 +17,15 @@ $$
 
 Where:
 - $\eta(x, y, t)$: Water surface displacement at point $(x, y)$ and time $t$
+
 - $A$: Wave amplitude
+
 - $k = \frac{2\pi}{\lambda}$: Wave number (with $\lambda$ as wavelength)
+
 - $\omega = 2\pi f$: Angular frequency (with $f$ as frequency)
+
 - $r = \sqrt{(x - x_0)^2 + (y - y_0)^2}$: Distance from source
+
 - $\phi$: Initial phase
 
 When multiple sources emit waves, we use the principle of superposition:
