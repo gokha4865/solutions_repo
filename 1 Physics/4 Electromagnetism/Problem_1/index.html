@@ -6,13 +6,13 @@
 <meta content="IE=edge" http-equiv="X-UA-Compatible"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <link href="../../../img/favicon.ico" rel="shortcut icon"/>
-<title>Problem 1 - Physics and Mathematics</title>
+<title>Simulating the Effects of the Lorentz Force - Physics and Mathematics</title>
 <link href="../../../css/theme.css" rel="stylesheet"/>
 <link href="../../../css/theme_extra.css" rel="stylesheet"/>
 <link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" rel="stylesheet"/>
 <script>
         // Current page data
-        var mkdocs_page_name = "Problem 1";
+        var mkdocs_page_name = "Simulating the Effects of the Lorentz Force";
         var mkdocs_page_input_path = "1 Physics/4 Electromagnetism/Problem_1.md";
         var mkdocs_page_url = null;
       </script>
@@ -70,8 +70,42 @@
 </li>
 <li class="toctree-l1 current"><a class="reference internal current">4 Electromagnetism</a>
 <ul class="current">
-<li class="toctree-l2 current"><a class="reference internal current" href="#">Problem 1</a>
+<li class="toctree-l2 current"><a class="reference internal current" href="#">Simulating the Effects of the Lorentz Force</a>
 <ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="#motivation">Motivation</a>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#1-exploration-of-applications">1. Exploration of Applications</a>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#2-simulation-assumptions">2. Simulation Assumptions</a>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#3-simulating-trajectories-under-various-conditions">3. Simulating Trajectories Under Various Conditions</a>
+<ul>
+<li class="toctree-l4"><a class="reference internal" href="#a-circular-motion-in-a-uniform-magnetic-field">A. Circular Motion in a Uniform Magnetic Field</a>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#b-spiral-helical-motion-along-the-z-axis">B. Spiral (Helical) Motion Along the Z-axis</a>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#c-complex-trajectory-crossed-electric-and-magnetic-fields">C. Complex Trajectory: Crossed Electric and Magnetic Fields</a>
+</li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#4-parameter-exploration">4. Parameter Exploration</a>
+<ul>
+<li class="toctree-l4"><a class="reference internal" href="#larmor-radius">Larmor Radius:</a>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#cyclotron-frequency">Cyclotron Frequency:</a>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#drift-velocity-in-crossed-fields">Drift Velocity in Crossed Fields:</a>
+</li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#5-visualization-summary">5. Visualization Summary</a>
+<ul>
+<li class="toctree-l4"><a class="reference internal" href="#scenarios-visualized">Scenarios Visualized:</a>
+</li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#6-discussion-and-real-world-relevance">6. Discussion and Real-World Relevance</a>
+</li>
 </ul>
 </li>
 </ul>
@@ -163,7 +197,7 @@
 <li><a aria-label="Docs" class="icon icon-home" href="../../.."></a></li>
 <li class="breadcrumb-item">1 Physics</li>
 <li class="breadcrumb-item">4 Electromagnetism</li>
-<li class="breadcrumb-item active">Problem 1</li>
+<li class="breadcrumb-item active">Simulating the Effects of the Lorentz Force</li>
 <li class="wy-breadcrumbs-aside">
 </li>
 </ul>
@@ -171,7 +205,199 @@
 </div>
 <div class="document" itemscope="itemscope" itemtype="http://schema.org/Article" role="main">
 <div class="section" itemprop="articleBody">
-<h1 id="problem-1">Problem 1</h1>
+<h1 id="simulating-the-effects-of-the-lorentz-force">Simulating the Effects of the Lorentz Force</h1>
+<h2 id="motivation">Motivation</h2>
+<p>The Lorentz force, expressed as:</p>
+<div class="arithmatex">\[
+\vec{F} = q\vec{E} + q\vec{v} \times \vec{B}
+\]</div>
+<p>governs the motion of charged particles in electric and magnetic fields. This fundamental law is critical in applications ranging from plasma physics and particle accelerators to astrophysical phenomena. Through simulation, we can visualize and understand how particles move under the influence of these fields.</p>
+<hr/>
+<h2 id="1-exploration-of-applications">1. Exploration of Applications</h2>
+<ul>
+<li><strong>Particle Accelerators</strong>: Lorentz force is used to steer and accelerate particles.</li>
+<li><strong>Mass Spectrometers</strong>: Charged particles are deflected by magnetic fields to determine mass-to-charge ratios.</li>
+<li><strong>Fusion Devices (e.g., Tokamaks)</strong>: Magnetic confinement relies on controlled charged particle motion.</li>
+</ul>
+<p>Electric (<span class="arithmatex">\(\vec{E}\)</span>) and magnetic (<span class="arithmatex">\(\vec{B}\)</span>) fields are essential tools for manipulating charged particles in controlled environments.</p>
+<hr/>
+<h2 id="2-simulation-assumptions">2. Simulation Assumptions</h2>
+<p>We use the following values for all simulations:</p>
+<ul>
+<li>Charge: <span class="arithmatex">\(q = 1 \, \text{C}\)</span></li>
+<li>Mass: <span class="arithmatex">\(m = 1 \, \text{g} = 0.001 \, \text{kg}\)</span></li>
+<li>Time step: <span class="arithmatex">\(\Delta t = 0.01\)</span> s</li>
+<li>Integration: Euler method</li>
+</ul>
+<hr/>
+<h2 id="3-simulating-trajectories-under-various-conditions">3. Simulating Trajectories Under Various Conditions</h2>
+<h3 id="a-circular-motion-in-a-uniform-magnetic-field">A. Circular Motion in a Uniform Magnetic Field</h3>
+<p>No electric field. Particle moves perpendicular to <span class="arithmatex">\(\vec{B}\)</span>.</p>
+<div class="arithmatex">\[
+\vec{F} = q \vec{v} \times \vec{B}
+\]</div>
+<p>Expected result: circular path.</p>
+<pre><code class="language-python">import numpy as np
+import matplotlib.pyplot as plt
+
+# Constants
+q = 1.0        # charge (C)
+m = 0.001      # mass (kg)
+B = np.array([0, 0, 1.0])  # magnetic field in z
+E = np.array([0, 0, 0])    # no electric field
+
+# Initial position and velocity (v ⊥ B)
+r = np.array([0.0, 0.0, 0.0])
+v = np.array([0.0, -2.0, 0.0])  # circle in x-y plane
+
+dt = 1e-6
+steps = 5000
+r_list = []
+
+for _ in range(steps):
+    F = q * (E + np.cross(v, B))
+    a = F / m
+    v += a * dt
+    r += v * dt
+    r_list.append(r.copy())
+
+r_list = np.array(r_list)
+plt.plot(r_list[:, 0], r_list[:, 1])
+plt.xlabel('x')
+plt.ylabel('y')
+plt.title('Circular trajectory (v ⊥ B)')
+plt.axis('equal')
+plt.grid(True)
+plt.show()
+</code></pre>
+<p><img alt="alt text" src="../Figure_1.png"/></p>
+<hr/>
+<h3 id="b-spiral-helical-motion-along-the-z-axis">B. Spiral (Helical) Motion Along the Z-axis</h3>
+<p>Introduce a velocity component along the magnetic field direction (<span class="arithmatex">\(z\)</span>):</p>
+<div class="arithmatex">\[
+\vec{v}_0 = [1.0, 0.0, 1.0]
+\]</div>
+<p>This leads to <strong>helical motion</strong>.</p>
+<pre><code class="language-python">import numpy as np
+import matplotlib.pyplot as plt
+from mpl_toolkits.mplot3d import Axes3D
+
+# Constants
+q = 1.0
+m = 0.001
+B = np.array([0, 0, 1.0])  # magnetic field in z
+E = np.array([0, 0, 0])
+
+# Initial velocity has a z-component
+r = np.array([0.0, 0.0, 0.0])
+v = np.array([0.0, -2.0, 2.0])  # circular + linear z
+
+dt = 1e-6
+steps = 10000
+r_list = []
+
+for _ in range(steps):
+    F = q * (E + np.cross(v, B))
+    a = F / m
+    v += a * dt
+    r += v * dt
+    r_list.append(r.copy())
+
+r_list = np.array(r_list)
+fig = plt.figure()
+ax = fig.add_subplot(111, projection='3d')
+ax.plot(r_list[:, 0], r_list[:, 1], r_list[:, 2])
+ax.set_title('Spiral along the z-axis')
+ax.set_xlabel('x')
+ax.set_ylabel('y')
+ax.set_zlabel('z')
+plt.show()
+</code></pre>
+<p><img alt="alt text" src="../Figure_2.png"/></p>
+<hr/>
+<h3 id="c-complex-trajectory-crossed-electric-and-magnetic-fields">C. Complex Trajectory: Crossed Electric and Magnetic Fields</h3>
+<p>Using crossed <span class="arithmatex">\(\vec{E}\)</span> and <span class="arithmatex">\(\vec{B}\)</span> fields:</p>
+<div class="arithmatex">\[
+\vec{E} = [1.0, 0.0, 0.0], \quad \vec{B} = [0.0, 0.0, 1.0]
+\]</div>
+<p>This results in <strong>drift motion</strong> in a direction perpendicular to both fields.</p>
+<pre><code class="language-python">import numpy as np
+import matplotlib.pyplot as plt
+from mpl_toolkits.mplot3d import Axes3D
+
+# Constants
+q = 1.0
+m = 0.001
+B = np.array([0.2, 0, 1.0])  # inclined magnetic field
+E = np.array([0, 0, 0])
+
+r = np.array([0.0, 0.0, 0.0])
+v = np.array([0.0, -2.0, 2.0])  # initial velocity
+
+dt = 1e-6
+steps = 10000
+r_list = []
+
+for _ in range(steps):
+    F = q * (E + np.cross(v, B))
+    a = F / m
+    v += a * dt
+    r += v * dt
+    r_list.append(r.copy())
+
+r_list = np.array(r_list)
+fig = plt.figure()
+ax = fig.add_subplot(111, projection='3d')
+ax.plot(r_list[:, 0], r_list[:, 1], r_list[:, 2])
+ax.set_title('Complex 3D trajectory (inclined B)')
+ax.set_xlabel('x')
+ax.set_ylabel('y')
+ax.set_zlabel('z')
+plt.show()
+</code></pre>
+<p><img alt="alt text" src="../Figure_3.png"/></p>
+<hr/>
+<h2 id="4-parameter-exploration">4. Parameter Exploration</h2>
+<p>We explore how changes in the following affect particle trajectories:</p>
+<ul>
+<li>Electric and magnetic field strengths (<span class="arithmatex">\(|\vec{E}|, |\vec{B}|\)</span>)</li>
+<li>Initial velocity <span class="arithmatex">\(\vec{v}_0\)</span></li>
+<li>Charge <span class="arithmatex">\(q\)</span> and mass <span class="arithmatex">\(m\)</span></li>
+</ul>
+<p>Key physical quantities:</p>
+<h3 id="larmor-radius">Larmor Radius:</h3>
+<div class="arithmatex">\[
+r_L = \frac{m v_\perp}{|q B|}
+\]</div>
+<h3 id="cyclotron-frequency">Cyclotron Frequency:</h3>
+<div class="arithmatex">\[
+\omega_c = \frac{|q B|}{m}
+\]</div>
+<h3 id="drift-velocity-in-crossed-fields">Drift Velocity in Crossed Fields:</h3>
+<div class="arithmatex">\[
+\vec{v}_d = \frac{\vec{E} \times \vec{B}}{B^2}
+\]</div>
+<p>These determine whether the particle undergoes tight circular motion, slow spirals, or fast linear drifts.</p>
+<hr/>
+<h2 id="5-visualization-summary">5. Visualization Summary</h2>
+<h3 id="scenarios-visualized">Scenarios Visualized:</h3>
+<ul>
+<li><strong>Circular motion</strong> in 2D under uniform <span class="arithmatex">\(\vec{B}\)</span></li>
+<li><strong>Spiral (helical)</strong> motion along <span class="arithmatex">\(z\)</span>-axis with initial velocity component in <span class="arithmatex">\(\vec{B}\)</span> direction</li>
+<li><strong>Drift motion</strong> under crossed <span class="arithmatex">\(\vec{E}\)</span> and <span class="arithmatex">\(\vec{B}\)</span></li>
+</ul>
+<p>Each plot demonstrates how the Lorentz force shapes the trajectory based on the field configuration.</p>
+<hr/>
+<h2 id="6-discussion-and-real-world-relevance">6. Discussion and Real-World Relevance</h2>
+<p>These simulations relate to practical technologies:</p>
+<ul>
+<li><strong>Cyclotrons</strong>: Acceleration through circular paths</li>
+<li><strong>Magnetic Traps</strong>: Confinement using Lorentz force balancing</li>
+<li><strong>Fusion Reactors</strong>: Plasma control via <span class="arithmatex">\(\vec{E}\)</span> and <span class="arithmatex">\(\vec{B}\)</span> shaping</li>
+<li><strong>Mass Spectrometry</strong>: Field-dependent ion separation</li>
+</ul>
+<p>Understanding and simulating the Lorentz force enhances both theoretical insight and engineering capability.</p>
+<hr/>
 </div>
 </div><footer>
 <div aria-label="Footer Navigation" class="rst-footer-buttons" role="navigation">
