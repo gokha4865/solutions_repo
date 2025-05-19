@@ -84,7 +84,7 @@
 </li>
 <li class="toctree-l4"><a class="reference internal" href="#b-spiral-helical-motion-along-the-z-axis">B. Spiral (Helical) Motion Along the Z-axis</a>
 </li>
-<li class="toctree-l4"><a class="reference internal" href="#c-complex-trajectory-crossed-electric-and-magnetic-fields">C. Complex Trajectory: Crossed Electric and Magnetic Fields</a>
+<li class="toctree-l4"><a class="reference internal" href="#c-complex-trajectory-in-an-inclined-magnetic-field">C. Complex Trajectory in an Inclined Magnetic Field</a>
 </li>
 </ul>
 </li>
@@ -240,15 +240,13 @@
 <pre><code class="language-python">import numpy as np
 import matplotlib.pyplot as plt
 
-# Constants
-q = 1.0        # charge (C)
-m = 0.001      # mass (kg)
-B = np.array([0, 0, 1.0])  # magnetic field in z
-E = np.array([0, 0, 0])    # no electric field
+q = 1.0
+m = 0.001
+B = np.array([0, 0, 1.0])
+E = np.array([0, 0, 0])
 
-# Initial position and velocity (v ⊥ B)
 r = np.array([0.0, 0.0, 0.0])
-v = np.array([0.0, -2.0, 0.0])  # circle in x-y plane
+v = np.array([0.0, -2.0, 0.0])
 
 dt = 1e-6
 steps = 5000
@@ -275,22 +273,20 @@ plt.show()
 <h3 id="b-spiral-helical-motion-along-the-z-axis">B. Spiral (Helical) Motion Along the Z-axis</h3>
 <p>Introduce a velocity component along the magnetic field direction (<span class="arithmatex">\(z\)</span>):</p>
 <div class="arithmatex">\[
-\vec{v}_0 = [1.0, 0.0, 1.0]
+\vec{v}_0 = [0.0, -2.0, 2.0]
 \]</div>
 <p>This leads to <strong>helical motion</strong>.</p>
 <pre><code class="language-python">import numpy as np
 import matplotlib.pyplot as plt
 from mpl_toolkits.mplot3d import Axes3D
 
-# Constants
 q = 1.0
 m = 0.001
-B = np.array([0, 0, 1.0])  # magnetic field in z
+B = np.array([0, 0, 1.0])
 E = np.array([0, 0, 0])
 
-# Initial velocity has a z-component
 r = np.array([0.0, 0.0, 0.0])
-v = np.array([0.0, -2.0, 2.0])  # circular + linear z
+v = np.array([0.0, -2.0, 2.0])
 
 dt = 1e-6
 steps = 10000
@@ -315,24 +311,23 @@ plt.show()
 </code></pre>
 <p><img alt="alt text" src="../Figure_2.png"/></p>
 <hr/>
-<h3 id="c-complex-trajectory-crossed-electric-and-magnetic-fields">C. Complex Trajectory: Crossed Electric and Magnetic Fields</h3>
-<p>Using crossed <span class="arithmatex">\(\vec{E}\)</span> and <span class="arithmatex">\(\vec{B}\)</span> fields:</p>
+<h3 id="c-complex-trajectory-in-an-inclined-magnetic-field">C. Complex Trajectory in an Inclined Magnetic Field</h3>
+<p>Using an <strong>inclined magnetic field</strong> and no electric field:</p>
 <div class="arithmatex">\[
-\vec{E} = [1.0, 0.0, 0.0], \quad \vec{B} = [0.0, 0.0, 1.0]
+\vec{B} = [0.2, 0.0, 1.0], \quad \vec{E} = [0.0, 0.0, 0.0]
 \]</div>
-<p>This results in <strong>drift motion</strong> in a direction perpendicular to both fields.</p>
+<p>This setup results in a <strong>complex 3D spiral trajectory</strong>, due to the magnetic field having components in both the <span class="arithmatex">\(x\)</span> and <span class="arithmatex">\(z\)</span> directions. The particle spirals and drifts along an inclined axis.</p>
 <pre><code class="language-python">import numpy as np
 import matplotlib.pyplot as plt
 from mpl_toolkits.mplot3d import Axes3D
 
-# Constants
 q = 1.0
 m = 0.001
-B = np.array([0.2, 0, 1.0])  # inclined magnetic field
+B = np.array([0.2, 0, 1.0])
 E = np.array([0, 0, 0])
 
 r = np.array([0.0, 0.0, 0.0])
-v = np.array([0.0, -2.0, 2.0])  # initial velocity
+v = np.array([0.0, -2.0, 2.0])
 
 dt = 1e-6
 steps = 10000
@@ -384,7 +379,7 @@ r_L = \frac{m v_\perp}{|q B|}
 <ul>
 <li><strong>Circular motion</strong> in 2D under uniform <span class="arithmatex">\(\vec{B}\)</span></li>
 <li><strong>Spiral (helical)</strong> motion along <span class="arithmatex">\(z\)</span>-axis with initial velocity component in <span class="arithmatex">\(\vec{B}\)</span> direction</li>
-<li><strong>Drift motion</strong> under crossed <span class="arithmatex">\(\vec{E}\)</span> and <span class="arithmatex">\(\vec{B}\)</span></li>
+<li><strong>Complex drift/spiral</strong> motion under an inclined <span class="arithmatex">\(\vec{B}\)</span> field</li>
 </ul>
 <p>Each plot demonstrates how the Lorentz force shapes the trajectory based on the field configuration.</p>
 <hr/>
@@ -397,7 +392,6 @@ r_L = \frac{m v_\perp}{|q B|}
 <li><strong>Mass Spectrometry</strong>: Field-dependent ion separation</li>
 </ul>
 <p>Understanding and simulating the Lorentz force enhances both theoretical insight and engineering capability.</p>
-<hr/>
 </div>
 </div><footer>
 <div aria-label="Footer Navigation" class="rst-footer-buttons" role="navigation">
