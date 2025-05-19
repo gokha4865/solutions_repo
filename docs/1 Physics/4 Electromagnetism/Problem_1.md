@@ -49,15 +49,13 @@ Expected result: circular path.
 import numpy as np
 import matplotlib.pyplot as plt
 
-# Constants
-q = 1.0        # charge (C)
-m = 0.001      # mass (kg)
-B = np.array([0, 0, 1.0])  # magnetic field in z
-E = np.array([0, 0, 0])    # no electric field
+q = 1.0
+m = 0.001
+B = np.array([0, 0, 1.0])
+E = np.array([0, 0, 0])
 
-# Initial position and velocity (v ⊥ B)
 r = np.array([0.0, 0.0, 0.0])
-v = np.array([0.0, -2.0, 0.0])  # circle in x-y plane
+v = np.array([0.0, -2.0, 0.0])
 
 dt = 1e-6
 steps = 5000
@@ -79,6 +77,7 @@ plt.axis('equal')
 plt.grid(True)
 plt.show()
 ```
+
 ![alt text](Figure_1.png)
 
 ---
@@ -88,7 +87,7 @@ plt.show()
 Introduce a velocity component along the magnetic field direction ($z$):
 
 $$
-\vec{v}_0 = [1.0, 0.0, 1.0]
+\vec{v}_0 = [0.0, -2.0, 2.0]
 $$
 
 This leads to **helical motion**.
@@ -98,15 +97,13 @@ import numpy as np
 import matplotlib.pyplot as plt
 from mpl_toolkits.mplot3d import Axes3D
 
-# Constants
 q = 1.0
 m = 0.001
-B = np.array([0, 0, 1.0])  # magnetic field in z
+B = np.array([0, 0, 1.0])
 E = np.array([0, 0, 0])
 
-# Initial velocity has a z-component
 r = np.array([0.0, 0.0, 0.0])
-v = np.array([0.0, -2.0, 2.0])  # circular + linear z
+v = np.array([0.0, -2.0, 2.0])
 
 dt = 1e-6
 steps = 10000
@@ -129,33 +126,33 @@ ax.set_ylabel('y')
 ax.set_zlabel('z')
 plt.show()
 ```
+
 ![alt text](Figure_2.png)
 
 ---
 
-### C. Complex Trajectory: Crossed Electric and Magnetic Fields
+### C. Complex Trajectory in an Inclined Magnetic Field
 
-Using crossed $\vec{E}$ and $\vec{B}$ fields:
+Using an **inclined magnetic field** and no electric field:
 
 $$
-\vec{E} = [1.0, 0.0, 0.0], \quad \vec{B} = [0.0, 0.0, 1.0]
+\vec{B} = [0.2, 0.0, 1.0], \quad \vec{E} = [0.0, 0.0, 0.0]
 $$
 
-This results in **drift motion** in a direction perpendicular to both fields.
+This setup results in a **complex 3D spiral trajectory**, due to the magnetic field having components in both the $x$ and $z$ directions. The particle spirals and drifts along an inclined axis.
 
 ```python
 import numpy as np
 import matplotlib.pyplot as plt
 from mpl_toolkits.mplot3d import Axes3D
 
-# Constants
 q = 1.0
 m = 0.001
-B = np.array([0.2, 0, 1.0])  # inclined magnetic field
+B = np.array([0.2, 0, 1.0])
 E = np.array([0, 0, 0])
 
 r = np.array([0.0, 0.0, 0.0])
-v = np.array([0.0, -2.0, 2.0])  # initial velocity
+v = np.array([0.0, -2.0, 2.0])
 
 dt = 1e-6
 steps = 10000
@@ -178,6 +175,7 @@ ax.set_ylabel('y')
 ax.set_zlabel('z')
 plt.show()
 ```
+
 ![alt text](Figure_3.png)
 
 ---
@@ -220,7 +218,7 @@ These determine whether the particle undergoes tight circular motion, slow spira
 
 - **Circular motion** in 2D under uniform $\vec{B}$
 - **Spiral (helical)** motion along $z$-axis with initial velocity component in $\vec{B}$ direction
-- **Drift motion** under crossed $\vec{E}$ and $\vec{B}$
+- **Complex drift/spiral** motion under an inclined $\vec{B}$ field
 
 Each plot demonstrates how the Lorentz force shapes the trajectory based on the field configuration.
 
@@ -236,6 +234,3 @@ These simulations relate to practical technologies:
 - **Mass Spectrometry**: Field-dependent ion separation
 
 Understanding and simulating the Lorentz force enhances both theoretical insight and engineering capability.
-
----
-
