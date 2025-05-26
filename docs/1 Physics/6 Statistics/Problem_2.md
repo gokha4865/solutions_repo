@@ -72,11 +72,12 @@ def estimate_pi_circle(n_points=10000, visualize=True):
         plt.axis('equal')
         plt.legend()
         plt.grid(True)
+        plt.tight_layout()
         plt.show()
 
     return pi_estimate
 
-def estimate_pi_buffon(n_drops=10000, needle_length=1.0, line_spacing=2.0, visualize=True):
+def estimate_pi_buffon(n_drops=100000, needle_length=1.0, line_spacing=2.0, visualize=True):
     if needle_length > line_spacing:
         raise ValueError("Needle length must be ≤ distance between lines.")
 
@@ -92,7 +93,8 @@ def estimate_pi_buffon(n_drops=10000, needle_length=1.0, line_spacing=2.0, visua
 
     if visualize:
         plt.figure(figsize=(12, 5))
-        for _ in range(1000):  # UPDATED from 50 to 1000
+        sample = 1000  # Visualize only 1000 for performance
+        for _ in range(sample):
             x0 = np.random.uniform(0, line_spacing * 5)
             y0 = np.random.uniform(0, 10)
             angle = np.random.uniform(0, np.pi)
@@ -104,15 +106,16 @@ def estimate_pi_buffon(n_drops=10000, needle_length=1.0, line_spacing=2.0, visua
 
         for i in range(6):
             plt.axvline(x=i * line_spacing, color='black', linestyle='--')
-        plt.title("Buffon's Needle Simulation (1000 Needles)")
+        plt.title(f"Buffon's Needle Simulation (100,000 Needles)\nπ Estimate: {pi_estimate:.5f}")
         plt.axis('equal')
         plt.grid(True)
+        plt.tight_layout()
         plt.show()
 
     return pi_estimate
 
 def convergence_analysis():
-    trials = [10, 100, 1000, 5000, 10000, 50000]
+    trials = [10, 100, 1000, 5000, 10000, 50000, 100000]
     estimates_circle = [estimate_pi_circle(n, visualize=False) for n in trials]
     estimates_buffon = [estimate_pi_buffon(n, visualize=False) for n in trials]
 
@@ -120,12 +123,19 @@ def convergence_analysis():
     plt.plot(trials, estimates_circle, label="Circle Method", marker='o')
     plt.plot(trials, estimates_buffon, label="Buffon's Needle", marker='s')
     plt.axhline(np.pi, color='gray', linestyle='--', label='True π')
+    
+    for x, y in zip(trials, estimates_circle):
+        plt.text(x, y + 0.05, f"{y:.4f}", fontsize=8, ha='center', color='green')
+    for x, y in zip(trials, estimates_buffon):
+        plt.text(x, y - 0.1, f"{y:.4f}", fontsize=8, ha='center', color='blue')
+
     plt.xscale("log")
     plt.xlabel("Number of Simulations (log scale)")
     plt.ylabel("Estimated π")
     plt.title("Convergence of π Estimation Methods")
     plt.legend()
     plt.grid(True)
+    plt.tight_layout()
     plt.show()
 
 if __name__ == "__main__":
@@ -133,16 +143,17 @@ if __name__ == "__main__":
     pi_circle = estimate_pi_circle(10000)
 
     print("\nEstimating π using Buffon's Needle Method:")
-    pi_buffon = estimate_pi_buffon(10000)
+    pi_buffon = estimate_pi_buffon(100000)
 
     print("\nRunning Convergence Analysis:")
     convergence_analysis()
+
 ```
-![alt text](Figure_21.png)
+![alt text](Figure_21-1.png)
 
-![alt text](Figure_22.png)
+![alt text](Figure_22-1.png)
 
-![alt text](Figure_23.png)
+![alt text](Figure_23-1.png)
 
 
 ---
