@@ -61,9 +61,9 @@ Estimate the gravitational acceleration **g** by measuring the period of a simpl
 | 10    | 20.3                               |
 
 > Let:  
-> - **Mean time:** $ \overline{T}_{10} = \frac{1}{10} \sum T_{10} $  
-> - **Standard deviation:** $ \sigma_T $  
-> - **Uncertainty in mean:** $ \Delta T_{10} = \frac{\sigma_T}{\sqrt{n}} $ where n = 10
+> - **Mean time:** $\overline{T}_{10} = \frac{1}{10} \sum T_{10}$  
+> - **Standard deviation:** $\sigma_T$  
+> - **Uncertainty in mean:** $\Delta T_{10} = \frac{\sigma_T}{\sqrt{n}}$ where n = 10
 
 ---
 
