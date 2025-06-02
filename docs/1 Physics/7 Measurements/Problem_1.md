@@ -57,7 +57,7 @@ $g = \frac{4\pi^2 L}{T^2}$
 
 > Ruler measure resolution = 1 mm 
 
->but we couldnt observe 1mm pricise we are going to take it as 2mm = 0.002 m
+> Although the ruler resolution is 1 mm, due to observation limits, we consider an effective resolution of 2 mm. Therefore, ΔL = 1 mm = 0.001 m.
 
 > Let $ΔL = (\text{resolution of measuring tool}) / 2 = 0.001$ m
 
@@ -73,16 +73,16 @@ $g = \frac{4\pi^2 L}{T^2}$
 
 | Trial | Time for 10 Oscillations (T₁₀) [s] |
 |-------|------------------------------------|
-| 1     | 17.91                              |
+| 1     | 17.86                              |
 | 2     | 17.95                              |
 | 3     | 17.92                              |
-| 4     | 17.96                              |
-| 5     | 17.90                              |
-| 6     | 17.94                              |
+| 4     | 17.88                              |
+| 5     | 17.93                              |
+| 6     | 17.84                              |
 | 7     | 17.95                              |
-| 8     | 17.91                              |
+| 8     | 17.71                              |
 | 9     | 17.92                              |
-| 10    | 17.95                              |
+| 10    | 17.99                              |
 
 > Let:  
 > - **Mean time:** $\overline{T}_{10} = \frac{1}{10} \sum T_{10}$  
@@ -95,27 +95,29 @@ $g = \frac{4\pi^2 L}{T^2}$
 
 ### Mean time for 10 oscillations:
 
-$\overline{T_{10}} = 17.931 \ \text{s}$
+$ \overline{T_{10}} = \frac{17.86 + 17.95 + 17.92 + 17.88 + 17.93 + 17.84 + 17.95 + 17.71 + 17.92 + 17.99}{10} = 17.895 \ \text{s} $
 
 ### Standard deviation:
 
-$\sigma_T = 0.012 \ \text{s}$
+Calculate the sample standard deviation, $ \sigma_T $:
+
+$ \sigma_T \approx 0.085 \ \text{s} $
 
 ### Uncertainty in $T_{10}$:
 
-$\Delta T_{10} = \frac{0.012}{\sqrt{10}} = 0.004 \ \text{s}$
+$ \Delta T_{10} = \frac{\sigma_T}{\sqrt{n}} = \frac{0.085}{\sqrt{10}} = 0.027 \ \text{s} $
 
 ### Period of one oscillation:
 
-$T = \frac{\overline{T_{10}}}{10} = \frac{17.931}{10} = 1.793 \ \text{s}$
+$ T = \frac{\overline{T_{10}}}{10} = \frac{17.895}{10} = 1.7895 \ \text{s} $
 
 ### Uncertainty in period:
 
-$\Delta T = \frac{0.004}{10} = 0.0004 \ \text{s}$
+$ \Delta T = \frac{\Delta T_{10}}{10} = \frac{0.027}{10} = 0.0027 \ \text{s} $
 
 ### Calculated gravitational acceleration:
 
-$g = \frac{4\pi^2 \cdot 0.800}{(1.793)^2} \approx 9.823 \ \text{m/s}^2$
+$ g = \frac{4\pi^2 \times 0.800}{(1.7895)^2} \approx 9.845 \ \text{m/s}^2 $
 
 ---
 
@@ -123,41 +125,20 @@ $g = \frac{4\pi^2 \cdot 0.800}{(1.793)^2} \approx 9.823 \ \text{m/s}^2$
 
 Relative uncertainty:
 
-$$
-\frac{\Delta g}{g} = \sqrt{\left( \frac{\Delta L}{L} \right)^2 + \left( 2 \cdot \frac{\Delta T}{T} \right)^2}
-= \sqrt{ \left( \frac{0.001}{0.800} \right)^2 + \left( 2 \cdot \frac{0.0004}{1.793} \right)^2 }
-$$
+$ \frac{\Delta g}{g} = \sqrt{\left(\frac{\Delta L}{L}\right)^2 + \left(2 \cdot \frac{\Delta T}{T}\right)^2} = \sqrt{\left(\frac{0.001}{0.800}\right)^2 + \left(2 \cdot \frac{0.0027}{1.7895}\right)^2} $
 
-$$
-\approx \sqrt{1.56 \times 10^{-6} + 4.99 \times 10^{-7}} \approx 0.0014
-$$
+$ \approx \sqrt{1.56 \times 10^{-6} + 9.08 \times 10^{-6}} \approx 0.0033 $
 
 Absolute uncertainty:
 
-$$
-\Delta g = 0.0014 \cdot 9.823 \approx 0.014 \ \text{m/s}^2
-$$
+$ \Delta g = 0.0033 \times 9.845 \approx 0.033 \ \text{m/s}^2 $
 
 ---
 
 ## Final Result
 
-$$
-g = 9.823 \pm 0.014 \ \text{m/s}^2
-$$
+$ g = 9.845 \pm 0.033 \ \text{m/s}^2 $
 
-
-
----
-
-## 📥 Results Summary
-
-| Quantity           | Value    | Uncertainty  |
-|--------------------|----------|--------------|
-| Pendulum Length `L`| 0.800 m  | ±0.001 m     |
-| Mean Time `T₁₀`    | 17.931 s | ±0.004 s     |
-| Period `T`         | 1.793 s  | ±0.00038 s   |
-| Calculated `g`     | 9.823 m/s² | ±0.014 m/s² |
 
 
 ---
@@ -167,7 +148,7 @@ $$
 ### ✅ Comparison
 
 - **Standard gravitational acceleration:** `9.81 m/s²`
-- **Measured value:** `9.823 ± 0.025 m/s²`
+- **Measured value:** `9.845 ± 0.033 m/s²`
 
 ### 🧾 Discussion
 
@@ -189,8 +170,8 @@ $$
 import numpy as np
 import matplotlib.pyplot as plt
 
-# Updated pendulum data
-T10_measurements = np.array([17.92, 17.94, 17.93, 17.95, 17.91, 17.93, 17.94, 17.92, 17.93, 17.94])
+# Updated pendulum data (corrected 8th value from 17.99 to 17.71)
+T10_measurements = np.array([17.86, 17.95, 17.92, 17.88, 17.93, 17.84, 17.95, 17.71, 17.92, 17.99])
 L = 0.800
 delta_L = 0.001  # 2mm resolution → ΔL = 0.001 m
 
@@ -212,13 +193,13 @@ delta_g = g * rel_uncertainty
 
 # Print results
 print(f"Mean time for 10 oscillations (T10): {T10_mean:.3f} ± {delta_T10:.3f} s")
-print(f"Period (T): {T:.3f} ± {delta_T:.5f} s")
+print(f"Period (T): {T:.4f} ± {delta_T:.4f} s")
 print(f"Calculated g: {g:.3f} ± {delta_g:.3f} m/s²")
 
 # Plot 1: T10 measurements
 plt.figure(figsize=(8, 4))
 plt.plot(T10_measurements, 'o-', label='Measurements')
-plt.axhline(y=T10_mean, color='red', linestyle='--', label=f'Mean = {T10_mean:.2f}s')
+plt.axhline(y=T10_mean, color='red', linestyle='--', label=f'Mean = {T10_mean:.2f} s')
 plt.fill_between(range(len(T10_measurements)), T10_mean - T10_std, T10_mean + T10_std, color='red', alpha=0.1, label='±1σ')
 plt.title("Time for 10 Oscillations")
 plt.xlabel("Trial")
@@ -254,12 +235,13 @@ plt.legend()
 plt.grid(True)
 plt.tight_layout()
 plt.show()
+
 ```
-![alt text](Figure_1-2.png)
+![alt text](Figure_1-3.png)
 
-![alt text](Figure_2-2.png)
+![alt text](Figure_2-3.png)
 
-![alt text](Figure_3-2.png)
+![alt text](Figure_3-3.png)
 
 ---
 
