@@ -95,27 +95,27 @@ $g = \frac{4\pi^2 L}{T^2}$
 
 ### Mean time for 10 oscillations:
 
-$$\overline{T_{10}} = 17.931 \ \text{s}$$
+$\overline{T_{10}} = 17.931 \ \text{s}$
 
 ### Standard deviation:
 
-$$\sigma_T = 0.012 \ \text{s}$$
+$\sigma_T = 0.012 \ \text{s}$
 
 ### Uncertainty in $T_{10}$:
 
-$$\Delta T_{10} = \frac{0.012}{\sqrt{10}} = 0.004 \ \text{s}$$
+$\Delta T_{10} = \frac{0.012}{\sqrt{10}} = 0.004 \ \text{s}$
 
 ### Period of one oscillation:
 
-$$T = \frac{\overline{T_{10}}}{10} = \frac{17.931}{10} = 1.793 \ \text{s}$$
+$T = \frac{\overline{T_{10}}}{10} = \frac{17.931}{10} = 1.793 \ \text{s}$
 
 ### Uncertainty in period:
 
-$$\Delta T = \frac{0.004}{10} = 0.0004 \ \text{s}$$
+$\Delta T = \frac{0.004}{10} = 0.0004 \ \text{s}$
 
 ### Calculated gravitational acceleration:
 
-$$g = \frac{4\pi^2 \cdot 0.800}{(1.793)^2} \approx 9.823 \ \text{m/s}^2$$
+$g = \frac{4\pi^2 \cdot 0.800}{(1.793)^2} \approx 9.823 \ \text{m/s}^2$
 
 ---
 
