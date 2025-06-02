@@ -1,4 +1,4 @@
-# Problem 1
+# Problem 1  
 # 🌍 Measuring Earth's Gravitational Acceleration with a Pendulum
 
 ## 📌 Motivation
@@ -15,11 +15,28 @@ Estimate the gravitational acceleration **g** by measuring the period of a simpl
 
 ---
 
+## Background Theory
+
+The motion of a simple pendulum (for small angles $\theta < 15^\circ$) is described by the equation:
+
+$T = 2\pi \sqrt{\frac{L}{g}}$
+
+Where:  
+- $T$ is the period of one oscillation (in seconds)  
+- $L$ is the length of the pendulum (in meters)  
+- $g$ is the acceleration due to gravity (in m/s²)  
+
+Rearranged to solve for $g$:
+
+$g = \frac{4\pi^2 L}{T^2}$
+
+---
+
 ## 🧰 Materials
 
-- String: 1.0–1.5 meters long  
+- String: 0.8 meters long  
 - Mass: e.g., bag of coins, metal washer, small weight  
-- Ruler or measuring tape (with known resolution)  
+- Ruler or measuring tape (with 0.004 m resolution)  
 - Stopwatch or smartphone timer  
 - Fixed support (e.g., hook, rod, table edge)
 
@@ -34,8 +51,15 @@ Estimate the gravitational acceleration **g** by measuring the period of a simpl
 - **Measure the length** of the pendulum from the point of suspension to the center of mass of the weight.
 
 > **Notation:**  
-> Let $L$ be the length of the pendulum (in meters)  
-> Let $ΔL = (resolution of measuring tool) / 2$  
+
+
+> Let $L$ be the length of the pendulum (in meters) in our case it is 0.8m
+
+> Ruler measure resolution = 1 mm 
+
+>but we couldnt observe 1mm pricise we are going to take it as 2mm = 0.002 m
+
+> Let $ΔL = (\text{resolution of measuring tool}) / 2 = 0.001$ m
 
 ### 2. Data Collection
 
@@ -49,16 +73,16 @@ Estimate the gravitational acceleration **g** by measuring the period of a simpl
 
 | Trial | Time for 10 Oscillations (T₁₀) [s] |
 |-------|------------------------------------|
-| 1     | 20.4                               |
-| 2     | 20.2                               |
-| 3     | 20.5                               |
-| 4     | 20.3                               |
-| 5     | 20.4                               |
-| 6     | 20.2                               |
-| 7     | 20.3                               |
-| 8     | 20.4                               |
-| 9     | 20.1                               |
-| 10    | 20.3                               |
+| 1     | 17.91                              |
+| 2     | 17.95                              |
+| 3     | 17.92                              |
+| 4     | 17.96                              |
+| 5     | 17.90                              |
+| 6     | 17.94                              |
+| 7     | 17.95                              |
+| 8     | 17.91                              |
+| 9     | 17.92                              |
+| 10    | 17.95                              |
 
 > Let:  
 > - **Mean time:** $\overline{T}_{10} = \frac{1}{10} \sum T_{10}$  
@@ -67,32 +91,74 @@ Estimate the gravitational acceleration **g** by measuring the period of a simpl
 
 ---
 
-## 🧮 Calculations
+## Calculations
 
-### 1. Period of One Oscillation
+### Mean time for 10 oscillations:
 
-$T = \frac{\overline{T}_{10}}{10}$  
+$$\overline{T_{10}} = 17.931 \ \text{s}$$
 
-$\Delta T = \frac{\Delta T_{10}}{10}$
+### Standard deviation:
 
-### 2. Gravitational Acceleration
+$$\sigma_T = 0.012 \ \text{s}$$
 
-$g = \frac{4\pi^2 L}{T^2}$
+### Uncertainty in $T_{10}$:
 
-### 3. Uncertainty in g
+$$\Delta T_{10} = \frac{0.012}{\sqrt{10}} = 0.004 \ \text{s}$$
 
-$\Delta g = g \sqrt{ \left( \frac{\Delta L}{L} \right)^2 + \left( \frac{2 \Delta T}{T} \right)^2 }$
+### Period of one oscillation:
+
+$$T = \frac{\overline{T_{10}}}{10} = \frac{17.931}{10} = 1.793 \ \text{s}$$
+
+### Uncertainty in period:
+
+$$\Delta T = \frac{0.004}{10} = 0.0004 \ \text{s}$$
+
+### Calculated gravitational acceleration:
+
+$$g = \frac{4\pi^2 \cdot 0.800}{(1.793)^2} \approx 9.823 \ \text{m/s}^2$$
+
+---
+
+## Uncertainty in $g$
+
+Relative uncertainty:
+
+$$
+\frac{\Delta g}{g} = \sqrt{\left( \frac{\Delta L}{L} \right)^2 + \left( 2 \cdot \frac{\Delta T}{T} \right)^2}
+= \sqrt{ \left( \frac{0.001}{0.800} \right)^2 + \left( 2 \cdot \frac{0.0004}{1.793} \right)^2 }
+$$
+
+$$
+\approx \sqrt{1.56 \times 10^{-6} + 4.99 \times 10^{-7}} \approx 0.0014
+$$
+
+Absolute uncertainty:
+
+$$
+\Delta g = 0.0014 \cdot 9.823 \approx 0.014 \ \text{m/s}^2
+$$
+
+---
+
+## Final Result
+
+$$
+g = 9.823 \pm 0.014 \ \text{m/s}^2
+$$
+
+
 
 ---
 
 ## 📥 Results Summary
 
-| Quantity | Value | Uncertainty |
-|----------|-------|-------------|
-| Pendulum Length `L` | 1.000 m | ±0.005 m |
-| Mean Time `T₁₀` | 20.31 s | ±0.10 s |
-| Period `T` | 2.031 s | ±0.010 s |
-| Calculated `g` | 9.55 m/s² | ±0.18 m/s² |
+| Quantity           | Value    | Uncertainty  |
+|--------------------|----------|--------------|
+| Pendulum Length `L`| 0.800 m  | ±0.001 m     |
+| Mean Time `T₁₀`    | 17.931 s | ±0.004 s     |
+| Period `T`         | 1.793 s  | ±0.00038 s   |
+| Calculated `g`     | 9.823 m/s² | ±0.014 m/s² |
+
 
 ---
 
@@ -101,7 +167,7 @@ $\Delta g = g \sqrt{ \left( \frac{\Delta L}{L} \right)^2 + \left( \frac{2 \Delta
 ### ✅ Comparison
 
 - **Standard gravitational acceleration:** `9.81 m/s²`
-- **Measured value:** `9.55 ± 0.18 m/s²`
+- **Measured value:** `9.823 ± 0.025 m/s²`
 
 ### 🧾 Discussion
 
@@ -117,23 +183,20 @@ $\Delta g = g \sqrt{ \left( \frac{\Delta L}{L} \right)^2 + \left( \frac{2 \Delta
   - Air resistance and friction at pivot are negligible
   - Rigid, massless string
 
-
 ---
 
 ```python
 import numpy as np
 import matplotlib.pyplot as plt
 
-# Simulated 10 measurements of time for 10 oscillations (seconds)
-T10_measurements = np.array([20.4, 20.2, 20.5, 20.3, 20.4, 20.2, 20.3, 20.4, 20.1, 20.3])
-
-# Pendulum length (meters)
-L = 1.000
-delta_L = 0.005  # uncertainty in length (m)
+# Updated pendulum data
+T10_measurements = np.array([17.92, 17.94, 17.93, 17.95, 17.91, 17.93, 17.94, 17.92, 17.93, 17.94])
+L = 0.800
+delta_L = 0.001  # 2mm resolution → ΔL = 0.001 m
 
 # Mean and standard deviation
 T10_mean = np.mean(T10_measurements)
-T10_std = np.std(T10_measurements, ddof=1)  # sample std deviation
+T10_std = np.std(T10_measurements, ddof=1)
 delta_T10 = T10_std / np.sqrt(len(T10_measurements))
 
 # Period and uncertainty
@@ -144,14 +207,15 @@ delta_T = delta_T10 / 10
 g = (4 * np.pi**2 * L) / T**2
 
 # Uncertainty in g
-delta_g = g * np.sqrt((delta_L / L)**2 + (2 * delta_T / T)**2)
+rel_uncertainty = np.sqrt((delta_L / L)**2 + (2 * delta_T / T)**2)
+delta_g = g * rel_uncertainty
 
 # Print results
 print(f"Mean time for 10 oscillations (T10): {T10_mean:.3f} ± {delta_T10:.3f} s")
-print(f"Period (T): {T:.3f} ± {delta_T:.3f} s")
+print(f"Period (T): {T:.3f} ± {delta_T:.5f} s")
 print(f"Calculated g: {g:.3f} ± {delta_g:.3f} m/s²")
 
-# --- Plot 1: T10 measurements with mean line ---
+# Plot 1: T10 measurements
 plt.figure(figsize=(8, 4))
 plt.plot(T10_measurements, 'o-', label='Measurements')
 plt.axhline(y=T10_mean, color='red', linestyle='--', label=f'Mean = {T10_mean:.2f}s')
@@ -164,11 +228,11 @@ plt.grid(True)
 plt.tight_layout()
 plt.show()
 
-# --- Plot 2: Convergence of g estimation ---
+# Plot 2: Convergence of g estimation
 g_estimates = (4 * np.pi**2 * L) / (T10_measurements / 10)**2
 plt.figure(figsize=(8, 4))
 plt.plot(g_estimates, 'o-', label='g estimates per trial')
-plt.axhline(y=g, color='green', linestyle='--', label=f'Average g = {g:.2f} m/s²')
+plt.axhline(y=g, color='green', linestyle='--', label=f'Average g = {g:.3f} m/s²')
 plt.axhline(y=9.81, color='black', linestyle=':', label='Standard g = 9.81 m/s²')
 plt.title("Estimation of g Over Trials")
 plt.xlabel("Trial")
@@ -178,10 +242,10 @@ plt.grid(True)
 plt.tight_layout()
 plt.show()
 
-# --- Plot 3: Error bar on g estimate ---
+# Plot 3: Final g estimate with uncertainty
 plt.figure(figsize=(6, 5))
-plt.errorbar(1, g, yerr=delta_g, fmt='o', color='blue', capsize=5, label=f'Measured g = {g:.2f} ± {delta_g:.2f}')
-plt.axhline(y=9.81, color='black', linestyle=':', label='Standard g = 9.81')
+plt.errorbar(1, g, yerr=delta_g, fmt='o', color='blue', capsize=5, label=f'Measured g = {g:.3f} ± {delta_g:.3f}')
+plt.axhline(y=9.81, color='black', linestyle=':', label='Standard g = 9.81 m/s²')
 plt.xlim(0, 2)
 plt.xticks([])
 plt.ylabel("g (m/s²)")
@@ -191,19 +255,14 @@ plt.grid(True)
 plt.tight_layout()
 plt.show()
 ```
-![alt text](Figure_1.png)
+![alt text](Figure_1-2.png)
 
-![alt text](Figure_2.png)
+![alt text](Figure_2-2.png)
 
-![alt text](Figure_3.png)
+![alt text](Figure_3-2.png)
 
 ---
 
 ## 📝 Conclusion
 
 This experiment provides a clear, practical method to determine gravitational acceleration using a pendulum. By incorporating repeated trials and formal uncertainty analysis, the process strengthens understanding of error propagation and experimental physics fundamentals.
-
----
-
-
-
