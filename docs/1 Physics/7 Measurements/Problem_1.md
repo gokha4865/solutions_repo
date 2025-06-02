@@ -57,7 +57,7 @@ $g = \frac{4\pi^2 L}{T^2}$
 
 > Ruler measure resolution = 1 mm 
 
-> Although the ruler resolution is 1 mm, due to observation limits, we consider an effective resolution of 2 mm. Therefore, ΔL = 1 mm = 0.001 m.
+> Although the ruler resolution is 1 mm, due to observation limits, we consider an effective resolution of 2 mm. Therefore,
 
 > Let $ΔL = (\text{resolution of measuring tool}) / 2 = 0.001$ m
 
