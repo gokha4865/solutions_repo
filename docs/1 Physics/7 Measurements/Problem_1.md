@@ -36,7 +36,7 @@ $g = \frac{4\pi^2 L}{T^2}$
 
 - String: 0.8 meters long  
 - Mass: e.g., bag of coins, metal washer, small weight  
-- Ruler or measuring tape (with 0.004 m resolution)  
+- Ruler or measuring tape 
 - Stopwatch or smartphone timer  
 - Fixed support (e.g., hook, rod, table edge)
 
