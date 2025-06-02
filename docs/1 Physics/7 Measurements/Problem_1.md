@@ -95,29 +95,29 @@ $g = \frac{4\pi^2 L}{T^2}$
 
 ### Mean time for 10 oscillations:
 
-$ \overline{T_{10}} = \frac{17.86 + 17.95 + 17.92 + 17.88 + 17.93 + 17.84 + 17.95 + 17.71 + 17.92 + 17.99}{10} = 17.895 \ \text{s} $
+$\overline{T_{10}} = \frac{17.86 + 17.95 + 17.92 + 17.88 + 17.93 + 17.84 + 17.95 + 17.71 + 17.92 + 17.99}{10} = 17.895 \ \text{s}$
 
 ### Standard deviation:
 
-Calculate the sample standard deviation, $ \sigma_T $:
+Calculate the sample standard deviation, $ \sigma_T$:
 
-$ \sigma_T \approx 0.085 \ \text{s} $
+$\sigma_T \approx 0.085 \ \text{s} $
 
 ### Uncertainty in $T_{10}$:
 
-$ \Delta T_{10} = \frac{\sigma_T}{\sqrt{n}} = \frac{0.085}{\sqrt{10}} = 0.027 \ \text{s} $
+$\Delta T_{10} = \frac{\sigma_T}{\sqrt{n}} = \frac{0.085}{\sqrt{10}} = 0.027 \ \text{s}$
 
 ### Period of one oscillation:
 
-$ T = \frac{\overline{T_{10}}}{10} = \frac{17.895}{10} = 1.7895 \ \text{s} $
+$T = \frac{\overline{T_{10}}}{10} = \frac{17.895}{10} = 1.7895 \ \text{s}$
 
 ### Uncertainty in period:
 
-$ \Delta T = \frac{\Delta T_{10}}{10} = \frac{0.027}{10} = 0.0027 \ \text{s} $
+$\Delta T = \frac{\Delta T_{10}}{10} = \frac{0.027}{10} = 0.0027 \ \text{s}$
 
 ### Calculated gravitational acceleration:
 
-$ g = \frac{4\pi^2 \times 0.800}{(1.7895)^2} \approx 9.845 \ \text{m/s}^2 $
+$g = \frac{4\pi^2 \times 0.800}{(1.7895)^2} \approx 9.845 \ \text{m/s}^2$
 
 ---
 
@@ -125,19 +125,19 @@ $ g = \frac{4\pi^2 \times 0.800}{(1.7895)^2} \approx 9.845 \ \text{m/s}^2 $
 
 Relative uncertainty:
 
-$ \frac{\Delta g}{g} = \sqrt{\left(\frac{\Delta L}{L}\right)^2 + \left(2 \cdot \frac{\Delta T}{T}\right)^2} = \sqrt{\left(\frac{0.001}{0.800}\right)^2 + \left(2 \cdot \frac{0.0027}{1.7895}\right)^2} $
+$\frac{\Delta g}{g} = \sqrt{\left(\frac{\Delta L}{L}\right)^2 + \left(2 \cdot \frac{\Delta T}{T}\right)^2} = \sqrt{\left(\frac{0.001}{0.800}\right)^2 + \left(2 \cdot \frac{0.0027}{1.7895}\right)^2}$
 
-$ \approx \sqrt{1.56 \times 10^{-6} + 9.08 \times 10^{-6}} \approx 0.0033 $
+$\approx \sqrt{1.56 \times 10^{-6} + 9.08 \times 10^{-6}} \approx 0.0033$
 
 Absolute uncertainty:
 
-$ \Delta g = 0.0033 \times 9.845 \approx 0.033 \ \text{m/s}^2 $
+$\Delta g = 0.0033 \times 9.845 \approx 0.033 \ \text{m/s}^2$
 
 ---
 
 ## Final Result
 
-$ g = 9.845 \pm 0.033 \ \text{m/s}^2 $
+$g = 9.845 \pm 0.033 \ \text{m/s}^2$
 
 
 
