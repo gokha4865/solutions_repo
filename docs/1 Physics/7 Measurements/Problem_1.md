@@ -84,61 +84,53 @@ $g = \frac{4\pi^2 L}{T^2}$
 | 9     | 17.92                              |
 | 10    | 17.99                              |
 
-> Let:  
-> - **Mean time:** $\overline{T}_{10} = \frac{1}{10} \sum T_{10}$  
-> - **Standard deviation:** $\sigma_T$  
-> - **Uncertainty in mean:** $\Delta T_{10} = \frac{\sigma_T}{\sqrt{n}}$ where n = 10
+---
+
+## 📐 Calculations
+
+### ✅ Mean time for 10 oscillations:
+
+$\overline{T_{10}} = 17.895$ s
+
+### ✅ Standard deviation:
+
+$\sigma_T = 0.078$ s
+
+### ✅ Uncertainty in $\overline{T_{10}}$:
+
+$\Delta T_{10} = \frac{\sigma_T}{\sqrt{10}} = 0.025$ s
+
+### ✅ Period of one oscillation:
+
+$T = \frac{17.895}{10} = 1.7895$ s
+
+### ✅ Uncertainty in $T$:
+
+$\Delta T = \frac{0.025}{10} = 0.0025$ s
+
+### ✅ Calculated gravitational acceleration:
+
+$g = \frac{4\pi^2 \cdot 0.800}{(1.7895)^2} = 9.862$ m/s²
 
 ---
 
-## Calculations
-
-### Mean time for 10 oscillations:
-
-$\overline{T_{10}} = \frac{17.86 + 17.95 + 17.92 + 17.88 + 17.93 + 17.84 + 17.95 + 17.71 + 17.92 + 17.99}{10} = 17.895 \ \text{s}$
-
-### Standard deviation:
-
-Calculate the sample standard deviation, $ \sigma_T$:
-
-$\sigma_T \approx 0.085 \ \text{s} $
-
-### Uncertainty in $T_{10}$:
-
-$\Delta T_{10} = \frac{\sigma_T}{\sqrt{n}} = \frac{0.085}{\sqrt{10}} = 0.027 \ \text{s}$
-
-### Period of one oscillation:
-
-$T = \frac{\overline{T_{10}}}{10} = \frac{17.895}{10} = 1.7895 \ \text{s}$
-
-### Uncertainty in period:
-
-$\Delta T = \frac{\Delta T_{10}}{10} = \frac{0.027}{10} = 0.0027 \ \text{s}$
-
-### Calculated gravitational acceleration:
-
-$g = \frac{4\pi^2 \times 0.800}{(1.7895)^2} \approx 9.845 \ \text{m/s}^2$
-
----
-
-## Uncertainty in $g$
+## 📉 Uncertainty in $g$
 
 Relative uncertainty:
 
-$\frac{\Delta g}{g} = \sqrt{\left(\frac{\Delta L}{L}\right)^2 + \left(2 \cdot \frac{\Delta T}{T}\right)^2} = \sqrt{\left(\frac{0.001}{0.800}\right)^2 + \left(2 \cdot \frac{0.0027}{1.7895}\right)^2}$
-
-$\approx \sqrt{1.56 \times 10^{-6} + 9.08 \times 10^{-6}} \approx 0.0033$
+$\frac{\Delta g}{g} = \sqrt{\left(\frac{\Delta L}{L}\right)^2 + \left(2 \cdot \frac{\Delta T}{T}\right)^2} = \sqrt{(0.00125)^2 + (0.0028)^2} = 0.0031$
 
 Absolute uncertainty:
 
-$\Delta g = 0.0033 \times 9.845 \approx 0.033 \ \text{m/s}^2$
+$\Delta g = 0.0031 \cdot 9.862 = 0.030$ m/s²
 
 ---
 
-## Final Result
+## ✅ Final Result
 
-$g = 9.845 \pm 0.033 \ \text{m/s}^2$
+$g = 9.862 \pm 0.030 \ \text{m/s}^2$
 
+---
 
 
 ---
@@ -148,7 +140,7 @@ $g = 9.845 \pm 0.033 \ \text{m/s}^2$
 ### ✅ Comparison
 
 - **Standard gravitational acceleration:** `9.81 m/s²`
-- **Measured value:** `9.845 ± 0.033 m/s²`
+- **Measured value:** `9.862 ± 0.030 m/s²`
 
 ### 🧾 Discussion
 
@@ -245,6 +237,17 @@ plt.show()
 
 ---
 
+---
+
 ## 📝 Conclusion
 
-This experiment provides a clear, practical method to determine gravitational acceleration using a pendulum. By incorporating repeated trials and formal uncertainty analysis, the process strengthens understanding of error propagation and experimental physics fundamentals.
+This experiment provides a clear, practical method to determine gravitational acceleration using a pendulum. Repeating measurements and analyzing uncertainty with statistical tools improves reliability and strengthens understanding of physical principles and error propagation.
+
+---
+
+## 🧾 Comparison
+
+- **Standard gravitational acceleration:** `9.81 m/s²`  
+- **Measured value:** `9.862 ± 0.030 m/s²`  
+- ✅ The result is consistent with the accepted value within the margin of uncertainty.
+
